@@ -1,0 +1,110 @@
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* Ensure navbar stays on top */
+  padding: 0.5rem 1rem; /* Reduce padding for a more compact navbar */
+  height: 100px;
+  background-color: #5f8e8a; /* Set a smaller height */
+}
+
+
+/* Navbar Brand and Links */
+.navbar-brand {
+  font-size: 1.2rem; /* Decrease font size */
+}
+input, textarea {
+  position: relative; /* Make sure they are positioned correctly */
+  z-index: 10; /* Ensure they are above other elements */
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem; /* Reduce the font size of the links */
+  padding: 0.25rem 0.5rem; /* Reduce padding inside the links */
+}
+
+/* Body Padding to Account for Navbar Height */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #5aa39d, #7e53ba);
+  margin: 0;
+  padding-top: 100px; /* Adjust for navbar height */
+  overflow: hidden;
+  /* Prevent horizontal scrolling */
+}
+
+
+.container-fluid {
+  display: flex;
+  height: calc(100vh - 10px); /* Adjust for navbar height */
+  padding: 0; /* Remove any default padding */
+}
+
+.left-fixed {
+  position: fixed;
+  top: 120px;
+  bottom: 20px;
+  left: 20px;
+  width: calc(50% - 10px); /* Set to 50% minus padding */
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  overflow: hidden;
+}
+
+.right-scroll {
+  margin-left: calc(50% + 20px); /* Adjust margin to align correctly */
+  width: calc(50% - 20px); /* Set to 50% minus padding */
+  height: calc(100vh - 30px); /* Full height minus navbar */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+.btn:hover {
+  background-color: #7e53ba; /* Change background on hover */
+  color: white; /* Change text color */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Card Styles */
+.card {
+  max-height: calc(88.5vh - 60px); /* Ensure it fits in the viewport */
+  overflow-y: auto;
+  max-width: 100%; /* Enable scrolling within the card if needed */
+}
+
+.card::-webkit-scrollbar {
+  display: none;
+}
+
+/* Additional Styles */
+.description {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.key-point {
+  font-weight: bold;
+}
+
+.sub-description {
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.card-body {
+  border-radius: 15px;
+}
+
+.btn {
+  border-radius: 10px;
+}
+
+h1, h5 {
+  margin-top: 20px;
+}

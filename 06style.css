@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&family=Poppins:wght@300&display=swap');
+
+body {
+    min-height: 100vh;
+    padding-top: 70px;
+}
+
+.clr1 {
+    background: linear-gradient(135deg, #5f8e8a, #9d69e7);
+    min-height: 100vh;
+}
+
+.bold {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.font {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure navbar stays on top */
+    padding: 0.5rem 1rem; /* Reduce padding for a more compact navbar */
+    height: 100px;
+    background-color: #5f8e8a; /* Set a smaller height */
+  }
+
+.table {
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Prevents content from spilling outside */
+    margin: 0 auto; /* Centers the table */
+    width: 80%; /* Adjust the width as needed */
+}
+
+.table-header {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.table-actions {
+    width: 100px; /* Adjust as needed */
+}
+
+.edit-btn {
+    color: #9d69e7;
+    cursor: pointer;
+}
+
+.delete-btn {
+    color: #ff4d4d;
+    cursor: pointer;
+}

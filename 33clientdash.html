@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Applicant Dashboard</title>
+
+    <link rel="stylesheet" href="33style.css"> <!-- Link to your CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="clr1"> <!-- Updated background color class -->
+
+    <div class="container mt-5">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 15px; font-weight: bold; background-color: #5f8e8a;" >
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo2.png" alt="Logo" width="250" height="90" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="33clientdash.html">Home</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="31clientjobpage.html">Job Openings</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="01(products).html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="01(Contact).html">Contact Now</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="mt-5 pt-4">
+            <h1 class="text-center mb-4 bold">Welcome to Your Job Dashboard</h1> <!-- Bold class -->
+
+            <!-- Key Metrics Section -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card text-white bg-info mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title bold">Total Applications</h5> <!-- Bold class -->
+                            <p class="card-text" id="totalApplications">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title bold">Applications in Progress</h5> <!-- Bold class -->
+                            <p class="card-text" id="applicationsInProgress">3</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- My Applications Section -->
+            <section id="applications" class="mb-5">
+                <h2 class="bold">My Applications</h2> <!-- Bold class -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Company</th>
+                            <th>Application Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Software Developer</td>
+                            <td>Tech Corp</td>
+                            <td>2023-10-01</td>
+                            <td><span class="badge bg-info">In Progress</span></td>
+                            <td><button class="btn btn-info btn-sm">View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Product Manager</td>
+                            <td>Biz Group</td>
+                            <td>2023-09-20</td>
+                            <td><span class="badge bg-success">Accepted</span></td>
+                            <td><button class="btn btn-info btn-sm">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Interview Schedule Section -->
+            <section id="interviews" class="mb-5">
+                <h2 class="bold">Interview Schedule</h2> <!-- Bold class -->
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Interview with Tech Corp
+                        <span>2023-10-15 at 10:00 AM</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Interview with Biz Group
+                        <span>2023-10-18 at 2:00 PM</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Documents Section -->
+            <section id="documents" class="mb-5">
+                <h2 class=" bold">Documents</h2> <!-- Bold class -->
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p>Resume: resume.pdf</p>
+                        <p>Cover Letter: cover_letter.pdf</p>
+                    </div>
+                    <button class="btn btn-secondary">Upload New Documents</button>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section id="notifications">
+                <h2 class="bold">Notifications</h2> <!-- Bold class -->
+                <ul class="list-group">
+                    <li class="list-group-item">Your interview with Tech Corp is scheduled for 2023-10-15.</li>
+                    <li class="list-group-item">Your application for the Product Manager position has been accepted.</li>
+                    <li class="list-group-item">Reminder: Upload updated resume by 2023-10-10.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

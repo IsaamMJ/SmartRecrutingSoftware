@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generate Custom Report</title>
+    <link rel="stylesheet" href="15style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js"></script>
+</head>
+<body class="clr1" style="padding-top: 120px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 15px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="23DashboradOverviewScreen.html">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="05jobcreationscreen.html">Job Creation</a></li>
+                           <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="08jobcategoriesmanagement.html">
+                            Job Categories
+                        </a>
+                    </li>
+                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="32resume.html">
+                            ATS-GenAI
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="19InterviewSchedulingDashboard.html">
+                            Interview Dashboard
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>                        
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="text-white bold text-center">Generate Custom Report</h1>
+
+        <!-- Select Collection Dropdown -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <label for="collectionSelect" class="form-label text-white bold">Select Collection</label>
+                    <select class="form-select" id="collectionSelect" onchange="fetchFields()">
+                        <option value="">Select Collection</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Date From and To -->
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="dateFrom" class="form-label text-white bold">Date From</label>
+                    <input type="date" class="form-control" id="dateFrom">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="dateTo" class="form-label text-white bold">Date To</label>
+                    <input type="date" class="form-control" id="dateTo">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dynamic Fields (Checkboxes) -->
+        <div class="mb-3">
+            <label class="form-label text-white">Select Fields</label>
+            <div id="fieldsContainer">
+                <!-- Dynamic checkboxes will be generated here -->
+            </div>
+        </div>
+        
+        <!-- Report Format (Radio Buttons) -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <label class="form-label text-white bold">Select Report Format</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="reportFormat" id="pdfFormat" value="pdf">
+                    <label class="form-check-label text-white" for="pdfFormat">PDF</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="reportFormat" id="wordFormat" value="word">
+                    <label class="form-check-label text-white" for="wordFormat">Word</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="reportFormat" id="csvFormat" value="csv">
+                    <label class="form-check-label text-white" for="csvFormat">CSV</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Generate Report Button -->
+        <div class="d-grid mt-5">
+            <button class="btn btn-warning rounded-5" id="generateReportBtn" onclick="generateReport()">Generate Report</button>
+        </div>
+        
+
+        <script type="module">
+            // Import Firebase SDK for Firebase v9+
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+            import { getFirestore, getDocs, collection, query, where, limit } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+        
+            // Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+                authDomain: "hexaware-39417.firebaseapp.com",
+                projectId: "hexaware-39417",
+                storageBucket: "hexaware-39417.appspot.com",
+                messagingSenderId: "118281921141",
+                appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+                measurementId: "G-F1LF9Z7GYS"
+            };
+        
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+        
+            // Predefined collection names
+            const collectionNames = [
+                'applicationForms',
+                'categories',
+                'interviews',
+                'interviewstage',
+                'jobApplications',
+                'jobPostings',
+                'jobs'
+            ];
+        
+            // Function to load collections
+            async function loadCollections() {
+                const collectionSelect = document.getElementById("collectionSelect");
+                collectionSelect.innerHTML = '<option value="">Loading collections...</option>';
+        
+                if (collectionNames.length === 0) {
+                    collectionSelect.innerHTML = '<option value="">No Collections Available</option>';
+                    return;
+                }
+        
+                collectionSelect.innerHTML = '<option value="">Select Collection</option>';
+                collectionNames.forEach((colName) => {
+                    const option = document.createElement("option");
+                    option.value = colName;
+                    option.textContent = colName;
+                    collectionSelect.appendChild(option);
+                });
+            }
+        
+            // Function to fetch fields from the selected collection
+            async function fetchFields() {
+                const collectionName = document.getElementById("collectionSelect").value;
+                const fieldsContainer = document.getElementById("fieldsContainer");
+                fieldsContainer.innerHTML = ''; // Clear existing checkboxes
+        
+                if (collectionName) {
+                    try {
+                        const colRef = collection(db, collectionName);
+                        const snapshot = await getDocs(query(colRef, limit(1)));
+        
+                        if (!snapshot.empty) {
+                            const doc = snapshot.docs[0];
+                            const fields = Object.keys(doc.data());
+        
+                            fields.forEach((field) => {
+                                const checkboxDiv = document.createElement("div");
+                                checkboxDiv.classList.add("form-check");
+        
+                                checkboxDiv.innerHTML = `
+                                    <input class="form-check-input" type="checkbox" name="fields" value="${field}" id="${field}">
+                                    <label class="form-check-label text-white" for="${field}">${field}</label>
+                                `;
+                                fieldsContainer.appendChild(checkboxDiv);
+                            });
+                        } else {
+                            fieldsContainer.innerHTML = '<p class="text-white">No fields found in this collection.</p>';
+                        }
+                    } catch (error) {
+                        console.error("Error fetching fields: ", error);
+                        fieldsContainer.innerHTML = '<p class="text-white">Error fetching fields. Please try again later.</p>';
+                    }
+                } else {
+                    fieldsContainer.innerHTML = '<p class="text-white">Please select a collection.</p>';
+                }
+            }
+        
+            // Function to generate and download the report
+            async function generateReport() {
+    const collectionName = document.getElementById("collectionSelect").value;
+    const selectedFields = Array.from(document.querySelectorAll('input[name="fields"]:checked')).map(el => el.value);
+    const dateFrom = document.getElementById("dateFrom").value;
+    const dateTo = document.getElementById("dateTo").value;
+    const fileType = document.querySelector('input[name="reportFormat"]:checked').value; // Fixed
+
+    if (!collectionName || selectedFields.length === 0 || !fileType) {
+        alert("Please select a collection, at least one field, and a file type.");
+        return;
+    }
+
+    try {
+        const colRef = collection(db, collectionName);
+        let q = query(colRef);
+
+        if (dateFrom && dateTo) {
+            const dateField = 'interviewDate';  // Change based on your Firestore schema
+            q = query(colRef, where(dateField, ">=", new Date(dateFrom)), where(dateField, "<=", new Date(dateTo)));
+        }
+
+        const snapshot = await getDocs(q);
+        if (snapshot.empty) {
+            alert("No documents found for the selected criteria.");
+            return;
+        }
+
+        const reportData = [];
+        snapshot.forEach((doc) => {
+            const docData = doc.data();
+            const filteredData = {};
+            selectedFields.forEach((field) => {
+                filteredData[field] = docData[field] || '';
+            });
+            reportData.push(filteredData);
+        });
+
+        if (fileType === "csv") {
+            generateCSVReport(reportData, selectedFields);
+        } else if (fileType === "json") {
+            generateJSONReport(reportData);
+        }
+    } catch (error) {
+        console.error("Error generating report: ", error);
+        alert("Error generating report. Please try again.");
+    }
+}
+
+        
+            // Helper function to generate CSV report
+            function generateCSVReport(data, fields) {
+                let csvContent = fields.join(",") + "\n"; // Add headers
+                data.forEach(row => {
+                    csvContent += fields.map(field => `"${row[field] || ''}"`).join(",") + "\n";
+                });
+        
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "report.csv";
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+        
+            // Helper function to generate JSON report
+            function generateJSONReport(data) {
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "report.json";
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+        
+            // Attach event listener to the collection select dropdown
+            document.getElementById("collectionSelect").addEventListener("change", fetchFields);
+        
+            // Load collections when the page loads
+            document.addEventListener('DOMContentLoaded', loadCollections);
+        
+            // Attach event listener for the Generate Report button
+            document.getElementById("generateReportBtn").addEventListener("click", generateReport);
+
+        </script>
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

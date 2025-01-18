@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Creation</title>
+    
+    <link rel="stylesheet" href="10style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="clr1" style="padding-top: 80px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 17px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="08jobcategoriesmanagement.html">Categories</a></li>
+                            <li><a class="dropdown-item" href="09categoryeditingmodel.html">Editing Model</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Application
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="11applicationformsmanagement.html">Forms Management</a></li>
+                            <li><a class="dropdown-item" href="12formcreationscreen.html">Form Creation</a></li>
+                            <li><a class="dropdown-item" href="13addfieldmodel.html">Add Field</a></li>
+                            <li><a class="dropdown-item" href="14formeditingscreen.html">Form Editing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ATS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="16ApplicationManagementScreen.html">Application Management</a></li>
+                            <!--<li><a class="dropdown-item" href="17Applicationdetailscreen.html">Application Detail</a></li>-->
+                            <li><a class="dropdown-item" href="18NotificationScreen.html">Notification Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Interview Scheduling
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="19InterviewSchedulingDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="20InterviewSchedulingScreen.html">Interview Scheduling</a></li>
+                            <li><a class="dropdown-item" href="21Interviewdetailscreen.html">Interview Details</a></li>
+                            <li><a class="dropdown-item" href="22Reschedulingscreen.html">Rescheduling</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="23DashboradOverviewScreen.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="24ApplicationDetailScreen.html">Application Detail</a></li>
+                            <li><a class="dropdown-item" href="25Updatestatusscreen.html">Update Status</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 m-auto">
+                    <h1 class="text-white bold mb-4 text-center">Create a New Job Posting</h1>
+                    
+                    <div class="card rounded-5 shadow">
+                        <div class="card-body p-4">
+                            <form id="jobCreationForm">
+                                <!-- Department Dropdown -->
+                                <div class="mb-3">
+                                    <label for="department" class="form-label">Department</label>
+                                    <select class="form-select" id="department" required>
+                                        <option selected disabled>Select a department</option>
+                                        <option>Human Resources</option>
+                                        <option>Marketing</option>
+                                        <option>Finance</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a department.</div>
+                                </div>
+
+                                <!-- Job Location Dropdown -->
+                                <div class="mb-3">
+                                    <label for="jobLocation" class="form-label">Job Location</label>
+                                    <select class="form-select" id="jobLocation" required>
+                                        <option selected disabled>Select a job location</option>
+                                        <option>New York</option>
+                                        <option>London</option>
+                                        <option>San Francisco</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a job location.</div>
+                                </div>
+
+                                <!-- Employment Type Dropdown -->
+                                <div class="mb-3">
+                                    <label for="employmentType" class="form-label">Employment Type</label>
+                                    <select class="form-select" id="employmentType" required>
+                                        <option selected disabled>Select employment type</option>
+                                        <option>Full-time</option>
+                                        <option>Part-time</option>
+                                        <option>Contract</option>
+                                        <option>Internship</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select an employment type.</div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn4 rounded-5" style="background-color: #9d69e7; color: white;">Create Job</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Job Postings Table -->
+                    <div class="table-responsive mt-5">
+                        <table class="table table-striped bg-white p-4 rounded text-white">
+                            <thead class="table-header">
+                                <tr>
+                                    <th>Department</th>
+                                    <th>Location</th>
+                                    <th>Employment Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jobPostingsList">
+                                <!-- Dynamic rows will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+            authDomain: "hexaware-39417.firebaseapp.com",
+            projectId: "hexaware-39417",
+            storageBucket: "hexaware-39417.appspot.com",
+            messagingSenderId: "118281921141",
+            appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+            measurementId: "G-F1LF9Z7GYS"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Populate Department dropdown with unique categories
+        async function fetchCategories() {
+            const departmentDropdown = document.getElementById('department');
+            departmentDropdown.innerHTML = ''; // Clear existing options
+    
+            const uniqueCategories = new Set(); // Use a Set to track unique category types
+    
+            try {
+                const querySnapshot = await getDocs(collection(db, "categories"));
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    uniqueCategories.add(data.categoryType); // Add to Set to ensure uniqueness
+                });
+    
+                // Populate the dropdown with unique values
+                uniqueCategories.forEach((categoryType) => {
+                    const option = document.createElement('option');
+                    option.value = categoryType;
+                    option.textContent = categoryType;
+                    departmentDropdown.appendChild(option);
+                });
+            } catch (error) {
+                console.error("Error fetching categories: ", error);
+                alert("Error fetching categories: " + error.message);
+            }
+        }
+    
+        // Job creation form submission
+        document.getElementById('jobCreationForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+    
+            const department = document.getElementById('department').value;
+            const jobLocation = document.getElementById('jobLocation').value;
+            const employmentType = document.getElementById('employmentType').value;
+    
+            try {
+                await addDoc(collection(db, "jobPostings"), {
+                    department,
+                    jobLocation,
+                    employmentType
+                });
+                alert('Job posting created successfully!');
+                fetchJobPostings(); // Refresh the job postings table
+                document.getElementById('jobCreationForm').reset(); // Reset form fields
+            } catch (error) {
+                console.error("Error adding job posting: ", error);
+                alert("Error adding job posting: " + error.message);
+            }
+        });
+    
+        // Fetch job postings from Firestore
+        async function fetchJobPostings() {
+            const jobPostingsList = document.getElementById('jobPostingsList');
+            jobPostingsList.innerHTML = ''; // Clear existing rows
+    
+            try {
+                const querySnapshot = await getDocs(collection(db, "jobPostings"));
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${data.department}</td>
+                        <td>${data.jobLocation}</td>
+                        <td>${data.employmentType}</td>
+                    `;
+                    jobPostingsList.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching job postings: ", error);
+                alert("Error fetching job postings: " + error.message);
+            }
+        }
+    
+        // Call fetchCategories on page load
+        fetchCategories();
+        // Call fetchJobPostings on page load
+        fetchJobPostings();
+    </script>
+    
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Published Jobs</title>
+    <link rel="stylesheet" href="31style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="clr1" style="padding-top: 40px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 17px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="33clientdash.html">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="31clientjobpage.html">Job Openings</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="01(products).html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="01(Contact).html">Contact Now</a>
+                    </li>
+                    
+                    
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 m-auto p-4">
+                    <h1 class="text-white text-center p-4">Client Jobs Apply Page</h1>
+                    
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped bg-white p-4 rounded text-dark">
+                            <thead class="table-header">
+                                <tr>
+                                    <th>Job Title</th>
+                                    <th>Department</th>
+                                    <th>Date Published</th>
+                                    <th class="table-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jobsTableBody">
+                                <!-- Published jobs will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="viewJobModal" tabindex="-1" role="dialog" aria-labelledby="viewJobModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="viewJobModalLabel">Job Details</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Job Description:</strong> <span id="viewJobDescription"></span></p>
+                            <p><strong>Job Location:</strong> <span id="viewJobLocation"></span></p>
+                            <p><strong>Required Qualifications:</strong> <span id="viewRequiredQualifications"></span></p>
+                            <p><strong>Preferred Qualifications:</strong> <span id="viewPreferredQualifications"></span></p>
+                            <p><strong>Salary:</strong> <span id="viewSalary"></span></p>
+                            <p><strong>Responsibilities:</strong> <span id="viewResponsibilities"></span></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            
+    
+            
+    </section>
+    
+    
+    
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getFirestore, collection, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+        authDomain: "hexaware-39417.firebaseapp.com",
+        projectId: "hexaware-39417",
+        storageBucket: "hexaware-39417.appspot.com",
+        messagingSenderId: "118281921141",
+        appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+        measurementId: "G-F1LF9Z7GYS"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Fetch published jobs from Firestore and populate the table
+    async function fetchPublishedJobs() {
+        const jobsTableBody = document.getElementById('jobsTableBody');
+
+        try {
+            const querySnapshot = await getDocs(collection(db, "jobs"));
+            console.log(`Fetched ${querySnapshot.size} published jobs`);
+
+            if (querySnapshot.empty) {
+                jobsTableBody.innerHTML = '<tr><td colspan="4" class="text-center">No published jobs available.</td></tr>';
+                return;
+            }
+
+            jobsTableBody.innerHTML = ''; // Clear previous entries
+
+            querySnapshot.forEach((doc) => {
+                const job = doc.data();
+                const row = document.createElement('tr');
+                row.setAttribute('data-job-id', doc.id);
+
+                const createdAt = job.createdAt ? new Date(job.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
+
+                row.innerHTML = `
+                    <td>${job.jobTitle}</td>
+                    <td>${job.department}</td>
+                    <td>${createdAt}</td> <!-- Display createdAt date -->
+                    <td class="table-actions">
+                        <span class="view-btn" style="cursor: pointer; color: green;" onclick="viewNow('${encodeURIComponent(doc.id)}')">View Now</span> |
+                        <span class="apply-btn" style="cursor: pointer; color: blue;" onclick="applyNow('${encodeURIComponent(doc.id)}')">Apply Now</span>
+                    </td>
+                `;
+
+                jobsTableBody.appendChild(row);
+            });
+        } catch (error) {
+            console.error("Error fetching published jobs: ", error);
+            alert("Error fetching published jobs: " + error.message);
+        }
+    }
+
+    // Call the function to fetch published jobs
+    fetchPublishedJobs();
+
+    // View Now function to display job details in a modal
+    window.viewNow = async function(jobId) {
+        try {
+            const jobRef = doc(db, "jobs", decodeURIComponent(jobId));
+            const jobSnapshot = await getDoc(jobRef);
+
+            if (jobSnapshot.exists()) {
+                const jobData = jobSnapshot.data();
+
+                // Populate the view modal fields
+                document.getElementById('viewJobDescription').innerText = jobData.jobDescription || 'N/A';
+                document.getElementById('viewJobLocation').innerText = jobData.jobLocation || 'N/A';
+                document.getElementById('viewRequiredQualifications').innerText = jobData.requiredQualifications || 'N/A';
+                document.getElementById('viewPreferredQualifications').innerText = jobData.preferredQualifications || 'N/A';
+                document.getElementById('viewSalary').innerText = jobData.salaryRange || 'N/A';
+                document.getElementById('viewResponsibilities').innerText = jobData.responsibilities || 'N/A';
+
+                // Show the modal
+                const modal = new bootstrap.Modal(document.getElementById('viewJobModal'));
+                modal.show();
+            } else {
+                alert("Job not found.");
+            }
+        } catch (error) {
+            console.error("Error fetching job data: ", error);
+            alert("Error fetching job data: " + error.message);
+        }
+    };
+
+    // Apply Now function
+    window.applyNow = function(jobId) {
+    // Redirect to the job application page with the job ID as a query parameter
+    window.location.href = `30jobapply.html?jobId=${encodeURIComponent(jobId)}`;
+    };
+</script>
+    
+    
+    
+    
+    
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!-- products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        body {
+            background: linear-gradient(135deg, #5f8e8a, #9d69e7); /* Gradient background */
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif; /* Set font for the entire body */
+        }
+        .navbar {
+            background: transparent !important; /* Make navbar transparent */
+            padding: 5px 0; /* Reduce navbar padding */
+            backdrop-filter: blur(5px);
+        }
+        .product-section {
+            padding: 50px;
+            text-align: center;
+        }
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 50px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body class="clr1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand bold text-white" href="#">
+                <img src="img/logo2.png" alt="SmartRecruit Logo" style="height: 150px; width: 400px; margin-right: 10px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="01loginpage.html" style="font-weight: bold;">Home</a>
+                    </li>
+                    <li class="nav-item"></li>
+                        <a class="nav-link text-white" href="01(Aboutus).html" style="font-weight: bold;">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="01(products).html" style="font-weight: bold;">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="01(Contact).html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Contact Now</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container product-section">
+        <h1>Our Services</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="img\Application Tracking.png" alt="Applicant Tracking">
+                    <h3>Applicant Tracking</h3>
+                    <p>Manage your candidates and track the hiring process efficiently.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="img\Job advertising.jpg" alt="Job Advertising">
+                    <h3>Job Advertising</h3>
+                    <p>Advertise your job postings on multiple platforms seamlessly.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="img\Job distribution.png" alt="Job Distribution">
+                    <h3>Job Distribution</h3>
+                    <p>Distribute your job postings across different job boards with ease.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="img\Chatbot Recruting.jpg" alt="Chatbot Recruiting">
+                    <h3>Chatbot Recruiting</h3>
+                    <p>Engage with candidates using intelligent chatbots.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="img\AI recruiting.webp" alt="AI Recruiting">
+                    <h3>AI Recruiting</h3>
+                    <p>Use AI-driven insights to make better hiring decisions.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="img\Onboarding.png" alt="Onboarding">
+                    <h3>Onboarding</h3>
+                    <p>Streamline the process of integrating new hires into your organization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

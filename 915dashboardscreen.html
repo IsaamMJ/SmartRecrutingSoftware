@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Screen</title>
+    <link rel="stylesheet" href="15style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="clr1">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 20px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="img\logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+          </div>
+        <div class="container-fluid">
+            <a class="navbar-brand text-white text-center" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-white">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="15dashboardscreen.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="10jobcreationscreen.html">Job Openings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="16ApplicationManagementScreen.html">My Applications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="19InterviewSchedulingDashboard.html">Interview Schedule</a>
+                    </li>
+                    <li class="nav-item"></li>
+                        <a class="nav-link" href="18NotificationScreen.html">Notifications</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center"></li>
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5" >
+        <h1 class="text-white text-center">Candidate Dashboard</h1>
+
+        <div class="row mt-4">
+            <!-- Job Openings Summary -->
+            <div class="col-md-6">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Job Openings</h5>
+                        <p class="card-text">Number of active job openings: <span id="jobOpeningsCount">5</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applications Summary -->
+            <div class="col-md-6">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Applications</h5>
+                        <p class="card-text">Number of applications received: <span id="applicationsCount">20</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Applications Table -->
+        <h4 class="text-white mt-4">Recent Applications</h4>
+        <table class="table table-striped text-white">
+            <thead>
+                <tr>
+                    <th>Applicant Name</th>
+                    <th>Job Title</th>
+                    <th>Status</th>
+                    <th>Date Applied</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="applicationsList">
+                <tr>
+                    <td>John Doe</td>
+                    <td>Software Engineer</td>
+                    <td>Interviewing</td>
+                    <td>2023-09-20</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" onclick="handleApplicationAction('view', 'John Doe')">View</button>
+                        <button class="btn btn-primary btn-sm" onclick="handleApplicationAction('nextStage', 'John Doe')">Move to Next Stage</button>
+                        <button class="btn btn-danger btn-sm" onclick="handleApplicationAction('reject', 'John Doe')">Reject</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Product Manager</td>
+                    <td>Shortlisted</td>
+                    <td>2023-09-21</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" onclick="handleApplicationAction('view', 'Jane Smith')">View</button>
+                        <button class="btn btn-primary btn-sm" onclick="handleApplicationAction('nextStage', 'Jane Smith')">Move to Next Stage</button>
+                        <button class="btn btn-danger btn-sm" onclick="handleApplicationAction('reject', 'Jane Smith')">Reject</button>
+                    </td>
+                </tr>
+                <!-- Add more applications as needed -->
+            </tbody>
+        </table>
+
+        <!-- View All Applications Button -->
+        <div class="d-grid mt-4">
+            <a href="applications_management.html" class="btn btn-warning rounded-5">View All Applications</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to handle application actions (view, move, reject)
+        function handleApplicationAction(action, applicantName) {
+            switch(action) {
+                case 'view':
+                    alert(`Viewing application for ${applicantName}`);
+                    break;
+                case 'nextStage':
+                    alert(`Moving ${applicantName} to the next stage`);
+                    break;
+                case 'reject':
+                    alert(`Rejecting application of ${applicantName}`);
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&family=Poppins:wght@300&display=swap');
+
+body {
+    min-height: 100vh;
+}
+
+
+
+.clr1 {
+    background: linear-gradient(135deg, #5f8e8a, #9d69e7);
+    min-height: 100vh;
+}
+
+
+.bold {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.font {
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-item {
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid transparent;
+}
+
+.nav-item:hover {
+    border-bottom: 2px solid #17b317;
+    transition: 0.1s;
+}
+
+section {
+    min-height: 70vh;
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+}

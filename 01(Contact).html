@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #5f8e8a, #9d69e7); /* Gradient background */
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif; /* Set font for the entire body */
+            color: #fff; /* White text color */
+        }
+        .navbar {
+            background: transparent !important; /* Make navbar transparent */
+            padding: 5px 0; /* Reduce navbar padding */
+            backdrop-filter: blur(5px); /* Blur effect on navbar */
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important; /* White text for navbar links */
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .contact-item {
+            background-color: rgba(255, 255, 255, 0.2); /* Slightly different semi-transparent background */
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+        .contact-info h3 {
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .contact-info i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand bold text-white" href="#">
+                <img src="img/logo2.png" alt="SmartRecruit Logo" style="height: 150px; width: 400px; margin-right: 10px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="01loginpage.html" style="font-weight: bold;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="01(Aboutus).html" style="font-weight: bold;">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="01(products).html" style="font-weight: bold;">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="01(Contact).html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Contact Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Information Section -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <p><i class="fas fa-map-marker-alt"></i><strong>Office Location:</strong> 1234, Tech Street, Silicon Valley, CA</p>
+                </div>
+                <div class="contact-item">
+                    <p><i class="fas fa-envelope"></i><strong>Email:</strong> zenithbliss@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <p><i class="fas fa-phone"></i><strong>Mobile No:</strong> +91 9463 888 371</p>
+                </div>
+                <div class="contact-item">
+                    <p><i class="fas fa-phone-square"></i><strong>Toll-Free No:</strong> 1-800-TECH-123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&family=Poppins:wght@300&display=swap');
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #5f8e8a, #9d69e7);
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.text-white {
+    color: white;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.table-header {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.table {
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    padding: 15px;
+}
+
+.table-actions {
+    text-align: center;
+}
+
+.edit-btn, .delete-btn {
+    cursor: pointer;
+    color: #9d69e7;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    color: #5f8e8a;
+}
+
+/* Modal styling */
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.modal-header {
+    border-bottom: none;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.modal-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.btn-close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.form-label {
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-control {
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #9d69e7;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5f8e8a;
+}
+
+.invalid-feedback {
+    font-family: 'Poppins', sans-serif;
+    color: red;
+}

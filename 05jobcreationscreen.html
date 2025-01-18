@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Creation</title>
+    
+    <link rel="stylesheet" href="05style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <body class="clr1">
+        <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 30px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="23DashboradOverviewScreen.html">
+                                Admin Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Jobs
+                            </a>
+                            <ul class="dropdown-menu">
+                               <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                                <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="08jobcategoriesmanagement.html">
+                                Job Categories
+                            </a>
+                        </li>
+                                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="32resume.html">
+                                ATS-GenAI
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="19InterviewSchedulingDashboard.html">
+                                Interview Dashboard
+                            </a>
+                        </li>
+                        
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Custom Report
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                                <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                                <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <div class="container-fluid">
+            <!-- Left Section (Fixed) -->
+            <div class="left-fixed">
+                <h1>Create Job Posting</h1>
+                <p class="description">Welcome to the Job Creation Page! Here’s where you can attract top talent by crafting compelling job listings that shine.</p>
+                <h5>What You Can Do:</h5>
+                <ul class="description">
+                    <li><span class="key-point">Job Title & Description:</span> <span class="sub-description">Make a great first impression with a clear title and engaging description.</span></li>
+                    <li><span class="key-point">Department & Location:</span> <span class="sub-description">Specify where the role fits within your organization and where it's based.</span></li>
+                    <li><span class="key-point">Employment Type:</span> <span class="sub-description">Define if the position is full-time, part-time, or contractual.</span></li>
+                    <li><span class="key-point">Salary Range:</span> <span class="sub-description">Foster transparency to attract the right candidates.</span></li>
+                    <li><span class="key-point">Application Deadline:</span> <span class="sub-description">Set a timeline to keep your recruitment on track.</span></li>
+                    <li><span class="key-point">Qualifications & Responsibilities:</span> <span class="sub-description">Outline what candidates need to succeed and what they’ll do.</span></li>
+                </ul>
+                <p class="description">Ready to go? You can choose to:</p>
+                <ul class="description">
+                    <li><span class="key-point">Save as Draft:</span> <span class="sub-description">Come back later to finalize your posting.</span></li>
+                    <li><span class="key-point">Publish:</span> <span class="sub-description">Make your job live and start attracting applicants!</span></li>
+                </ul>
+                <p class="description">Let’s build your dream team together!</p>
+            </div>
+    
+            <!-- Right Section (Scrollable) -->
+            <div class="right-scroll">
+                <form id="jobCreationForm" novalidate>
+                    <div class="card rounded-5 shadow">
+                        <div class="card-body p-4">
+                            <!-- Form Fields -->
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="jobId" class="form-label">Job ID</label>
+                                    <input type="text" class="form-control" id="jobId" placeholder="Job ID" readonly>
+                                </div>
+                                
+                                
+
+
+                                <div class="mb-3">
+                                    <label for="jobTitle" class="form-label">Job Title</label>
+                                    <input type="text" class="form-control" id="jobTitle" placeholder="Enter the job title" required>
+                                    <div class="invalid-feedback">Job title is required.</div>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="jobDescription" class="form-label">Job Description</label>
+                                    <textarea class="form-control" id="jobDescription" placeholder="Enter the job description" rows="3" required minlength="50"></textarea>
+                                    <div class="invalid-feedback">Job description must be at least 50 characters long.</div>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="department" class="form-label">Job Category</label>
+                                    <select class="form-select" id="department" required>
+                                        <option value="" disabled selected>Select a Category</option>
+                                        
+                                    </select>
+                                    <div class="invalid-feedback">Department is required.</div>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="jobLocation" class="form-label">Job Location</label>
+                                    <input type="text" class="form-control" id="jobLocation" placeholder="Enter the job location" required>
+                                    <div class="invalid-feedback">Job location is required.</div>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="employmentType" class="form-label">Employment Type</label>
+                                    <select class="form-select" id="employmentType" required>
+                                        <option value="" disabled selected>Select employment type</option>
+                                        <option value="Full-time">Full-time</option>
+                                        <option value="Part-time">Part-time</option>
+                                        <option value="Contract">Contract</option>
+                                        <option value="Internship">Internship</option>
+                                    </select>
+                                    <div class="invalid-feedback">Employment type is required.</div>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="salaryRange" class="form-label">Salary Range</label>
+                                    <input type="text" class="form-control" id="salaryRange" placeholder="Enter the salary range (e.g., 50000-60000)" required pattern="^[0-9]+-[0-9]+$">
+                                    <div class="invalid-feedback">Salary range is required and must be numeric values.</div>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="applicationDeadline" class="form-label">Application Deadline</label>
+                                    <input type="date" class="form-control" id="applicationDeadline" required>
+                                    <div class="invalid-feedback">Application deadline is required and must be a future date.</div>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="requiredQualifications" class="form-label">Required Qualifications</label>
+                                    <textarea class="form-control" id="requiredQualifications" placeholder="Enter the required qualifications" rows="3" required></textarea>
+                                    <div class="invalid-feedback">Required qualifications are required.</div>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="preferredQualifications" class="form-label">Preferred Qualifications</label>
+                                    <textarea class="form-control" id="preferredQualifications" placeholder="Enter the preferred qualifications" rows="3"></textarea>
+                                </div>
+            
+                                <div class="mb-3">
+                                    <label for="responsibilities" class="form-label">Responsibilities</label>
+                                    <textarea class="form-control" id="responsibilities" placeholder="Enter the job responsibilities" rows="3" required></textarea>
+                                    <div class="invalid-feedback">Responsibilities are required.</div>
+                                </div>
+            
+                                <div class="d-grid mb-2">
+                                    <button type="button" class="btn rounded-5" style="background-color: #9d69e7;" id="saveDraftBtn">Save as Draft</button>
+                                </div>
+            
+                                <div class="d-grid">
+                                    <button type="submit" class="btn rounded-5" style="background-color: #9d69e7;">Publish</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+
+    
+
+            <script type="module">
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+                import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+                import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+            
+                // Firebase configuration
+                const firebaseConfig = {
+                    apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+                    authDomain: "hexaware-39417.firebaseapp.com",
+                    projectId: "hexaware-39417",
+                    storageBucket: "hexaware-39417.appspot.com",
+                    messagingSenderId: "118281921141",
+                    appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+                    measurementId: "G-F1LF9Z7GYS"
+                };
+            
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                const auth = getAuth(app);
+            
+                const form = document.getElementById('jobCreationForm');
+                const saveDraftBtn = document.getElementById('saveDraftBtn');
+            
+                // Populate department dropdown with unique values from categories collection
+                async function fetchDepartments() {
+                    const departmentDropdown = document.getElementById('department');
+                    departmentDropdown.innerHTML = ''; // Clear existing options
+            
+                    try {
+                        const querySnapshot = await getDocs(collection(db, "categories"));
+                        const departmentsSet = new Set(); // To store unique department values
+            
+                        querySnapshot.forEach((doc) => {
+                            const data = doc.data();
+                            if (data.categoryType) {
+                                departmentsSet.add(data.categoryType); // Add unique category types
+                            }
+                        });
+            
+                        // Populate dropdown with unique departments
+                        departmentsSet.forEach(department => {
+                            const option = document.createElement('option');
+                            option.value = department;
+                            option.textContent = department;
+                            departmentDropdown.appendChild(option);
+                        });
+                    } catch (error) {
+                        console.error("Error fetching departments: ", error);
+                        alert("Error fetching departments: " + error.message);
+                    }
+                }
+            
+                // Call fetchDepartments on page load
+                fetchDepartments();
+            
+                // Generate a simpler Job ID when the page loads
+                function generateJobId() {
+                    return `JOB${Math.floor(1000 + Math.random() * 9000)}`;
+                }
+            
+                // Display Job ID when the form is loaded
+                document.getElementById('jobId').value = generateJobId();
+            
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    await submitJob(true);
+                });
+            
+                saveDraftBtn.addEventListener('click', async function () {
+                    await submitJob(false);
+                });
+            
+                async function submitJob(isPublished) {
+                    // Get form values
+                    
+                    const jobId = document.getElementById('jobId').value; // Get Job ID
+                    const jobTitle = document.getElementById('jobTitle').value.trim();
+                    const jobDescription = document.getElementById('jobDescription').value.trim();
+                    const department = document.getElementById('department').value;
+                    const jobLocation = document.getElementById('jobLocation').value.trim();
+                    const employmentType = document.getElementById('employmentType').value;
+                    const salaryRange = document.getElementById('salaryRange').value.trim();
+                    const applicationDeadline = document.getElementById('applicationDeadline').value;
+                    const requiredQualifications = document.getElementById('requiredQualifications').value.trim();
+                    const preferredQualifications = document.getElementById('preferredQualifications').value.trim();
+                    const responsibilities = document.getElementById('responsibilities').value.trim();
+            
+                    // Validate required fields
+                    if (!jobTitle || !jobDescription || !department || !jobLocation || !employmentType || !salaryRange || !applicationDeadline || !requiredQualifications || !responsibilities) {
+                        alert("Please fill in all required fields.");
+                        return;
+                    }
+            
+                    // Date validation
+                    const today = new Date();
+                    const selectedDate = new Date(applicationDeadline);
+                    if (selectedDate <= today) {
+                        alert("Application deadline must be a future date.");
+                        return;
+                    }
+            
+                    const collectionName = isPublished ? "jobs" : "jobDrafts"; // Choose collection based on publish status
+            
+                    // Try to add document to Firestore
+                    try {
+                        await addDoc(collection(db, collectionName), {
+                            jobId, // Use the displayed Job ID here
+                            jobTitle,
+                            jobDescription,
+                            department,
+                            jobLocation,
+                            employmentType,
+                            salaryRange,
+                            applicationDeadline,
+                            requiredQualifications,
+                            preferredQualifications,
+                            responsibilities,
+                            isPublished,
+                            createdAt: new Date(),
+                        });
+            
+                        alert(isPublished ? "Job successfully posted!" : "Job draft saved!");
+                        form.reset(); // Reset the form after submission
+                        document.getElementById('jobId').value = generateJobId(); // Generate new Job ID for next submission
+                        fetchDepartments(); // Refetch departments to ensure dropdown is updated
+                    } catch (error) {
+                        console.error("Error adding job: ", error);
+                        alert("Error posting the job: " + error.message);
+                    }
+                }
+            </script>
+            
+            
+
+        
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

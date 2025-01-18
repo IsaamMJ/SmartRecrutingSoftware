@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&family=Poppins:wght@300&display=swap');
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #5f8e8a, #9d69e7);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Style for the navbar */
+.navbar {
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #5f8e8a;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* Give enough top padding to the body content to prevent overlap */
+.content {
+    padding-top: 120px; /* Adjust this based on navbar height */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.text-white {
+    color: white;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.form-label {
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-select {
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #9d69e7;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5f8e8a;
+}
+
+.btn4{
+    background-color: #9d69e7;
+}
+.invalid-feedback {
+    font-family: 'Poppins', sans-serif;
+    color: red;
+}

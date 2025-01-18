@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Report Details</title>
+    <link rel="stylesheet" href="28style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="clr1">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top navbar-custom" style="font-size: 17px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="08jobcategoriesmanagement.html">Categories</a></li>
+                            <li><a class="dropdown-item" href="09categoryeditingmodel.html">Editing Model</a></li>
+                            <li><a class="dropdown-item" href="10jobcreationscreen.html">Creation Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Application
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="11applicationformsmanagement.html">Forms Management</a></li>
+                            <li><a class="dropdown-item" href="12formcreationscreen.html">Form Creation</a></li>
+                            <li><a class="dropdown-item" href="13addfieldmodel.html">Add Field</a></li>
+                            <li><a class="dropdown-item" href="14formeditingscreen.html">Form Editing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ATS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="16ApplicationManagementScreen.html">Application Management</a></li> 
+                            <!--<li><a class="dropdown-item" href="17Applicationdetailscreen.html">Application Detail</a></li>-->
+                            <li><a class="dropdown-item" href="18NotificationScreen.html">Notification Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Interview Scheduling
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="19InterviewSchedulingDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="20InterviewSchedulingScreen.html">Interview Scheduling</a></li>
+                            <li><a class="dropdown-item" href="21Interviewdetailscreen.html">Interview Details</a></li>
+                            <li><a class="dropdown-item" href="22Reschedulingscreen.html">Rescheduling</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="23DashboradOverviewScreen.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="24ApplicationDetailScreen.html">Application Detail</a></li>
+                            <li><a class="dropdown-item" href="25Updatestatusscreen.html">Update Status</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <!--<li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>-->
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center"></li>
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="text-white bold text-center pt-3 pb-2">Report Details</h1>
+
+        <div class="card text-white bg-dark mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Report Information</h5>
+                <p><strong>Report Name:</strong> <span id="reportName">Monthly Recruitment Report</span></p>
+                <p><strong>Date Created:</strong> <span id="dateCreated">2024-09-01</span></p>
+                <p><strong>Created By:</strong> <span id="createdBy">Admin User</span></p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-dark mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Report Data</h5>
+                <table class="table table-striped text-white">
+                    <thead>
+                        <tr>
+                            <th>Applicant Name</th>
+                            <th>Date Applied</th>
+                            <th>Status</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>2024-08-15</td>
+                            <td>Hired</td>
+                            <td>Job Board</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>2024-08-20</td>
+                            <td>In Progress</td>
+                            <td>Referral</td>
+                        </tr>
+                        <!-- Additional data rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="d-grid mb-4">
+            <button class="btn btn-warning rounded-5" id="editReport">Edit Report</button>
+            <button class="btn btn-danger rounded-5" id="deleteReport">Delete Report</button>
+            <button class="btn btn-info rounded-5" id="exportReport">Export Report</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

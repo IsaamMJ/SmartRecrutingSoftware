@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interview Scheduling Dashboard</title>
+
+    <link rel="stylesheet" href="19style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="clr1" style="padding-top: 120px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 15px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="23DashboradOverviewScreen.html">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="05jobcreationscreen.html">Job Creation</a></li>
+                           <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="08jobcategoriesmanagement.html">
+                            Job Categories
+                        </a>
+                    </li>
+                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="32resume.html">
+                            ATS-GenAI
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="19InterviewSchedulingDashboard.html">
+                            Interview Dashboard
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>                        
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="text-white bold pt-5">Interview Scheduling Dashboard</h1>
+    
+        <!-- Upcoming Interviews Summary -->
+        <div class="mb-4">
+            <h4 class="text-white bold">Upcoming Interviews</h4>
+            <p class="text-white" id="upcomingInterviewsCount">0 Upcoming Interviews</p> <!-- Updated to have an ID -->
+        </div>
+    
+        <!-- Interviews List Table -->
+        <table class="table table-striped text-white">
+            <thead>
+                <tr>
+                    <th>Applicant Name</th>
+                    <th>Job Title</th>
+                    <th>Interview Date</th>
+                    <th>Interview Time</th>
+                    <th>Interviewer</th>
+                    
+                    <th>Intervie Mode</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="interviewsTableBody">
+                <!-- Rows will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
+    
+
+        <!-- Schedule New Interview Button -->
+        <div class="d-grid">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#scheduleInterviewModal">Schedule New Interview</button>
+        </div>
+    </div>
+
+    <!-- Schedule New Interview Modal (basic structure) -->
+    <div class="modal fade" id="scheduleInterviewModal" tabindex="-1" aria-labelledby="scheduleInterviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-5">
+                <div class="modal-header">
+                    <h5 class="modal-title bold" id="scheduleInterviewModalLabel">Schedule New Interview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="scheduleInterviewForm">
+                        <!-- Update applicantName field to a select dropdown -->
+                        <div class="mb-3">
+                            <label for="applicantName" class="form-label bold">Applicant Name</label>
+                            <select class="form-control" id="applicantName" required>
+                                <option value="" disabled selected>Select an applicant</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jobTitle" class="form-label bold">Job ID</label>
+                            <input type="text" class="form-control" id="jobTitle" placeholder="Job title will auto-populate" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="interviewDate" class="form-label bold">Interview Date</label>
+                            <input type="date" class="form-control" id="interviewDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="interviewTime" class="form-label bold">Interview Time</label>
+                            <input type="time" class="form-control" id="interviewTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="interviewMode" class="form-label fw-bold">Interviewer</label>
+                            <select class="form-select" id="interviewMem" name="interviewMem" required>
+                                <option value="" disabled selected>Select Mode</option>
+                                <option value="HR - Mr.Sugadev">HR - Mr.Sugadev</option>
+                                <option value="GM - Ms.Priyanka">GM - Ms.Priyanka</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select an interview mode.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="interviewMode" class="form-label fw-bold">Interview Mode</label>
+                            <select class="form-select" id="interviewMode" name="interviewMode" required>
+                                <option value="" disabled selected>Select Mode</option>
+                                <option value="Online">Online</option>
+                                <option value="Offline">Offline</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select an interview mode.
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success rounded-5">Schedule Interview</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Interview Details Modal -->
+<div class="modal fade" id="viewInterviewModal" tabindex="-1" aria-labelledby="viewInterviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-5">
+            <div class="modal-header">
+                <h5 class="modal-title bold" id="viewInterviewModalLabel">Interview Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Applicant Name:</strong> <span id="viewApplicantName"></span></p>
+                <p><strong>Job ID:</strong> <span id="viewJobTitle"></span></p>
+                <p><strong>Interview Date:</strong> <span id="viewInterviewDate"></span></p>
+                <p><strong>Interview Time:</strong> <span id="viewInterviewTime"></span></p>
+                <p><strong>Interview Mode:</strong> <span id="viewInterviewMode"></span></p>
+                <p><strong>Interview Panel Member:</strong> <span id="viewInterviewMem"></span></p>
+                <p><strong>Status:</strong> <span id="viewInterviewStatus"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+        authDomain: "hexaware-39417.firebaseapp.com",
+        projectId: "hexaware-39417",
+        storageBucket: "hexaware-39417.appspot.com",
+        messagingSenderId: "118281921141",
+        appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+        measurementId: "G-F1LF9Z7GYS"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    
+    // Set to hold applicants with scheduled interviews
+    let scheduledApplicants = new Set();
+    
+    // Function to load applicants from 'interviewstage' collection into the dropdown
+    async function loadApplicants() {
+        const applicantSelect = document.getElementById('applicantName');
+        applicantSelect.innerHTML = '';  // Clear existing options
+
+        const querySnapshot = await getDocs(collection(db, 'interviewstage'));
+        querySnapshot.forEach((doc) => {
+            const applicantData = doc.data();
+            const fullName = `${applicantData.applicantName}`; // Adjusted to use 'applicantName'
+    
+            // Only add the applicant if they are not already scheduled
+            if (!scheduledApplicants.has(fullName)) {
+                const option = document.createElement('option');
+                option.value = fullName;
+                option.textContent = fullName;
+                option.setAttribute('data-jobtitle', applicantData.jobTitle);  // Store job title in data attribute
+                applicantSelect.appendChild(option);
+            }
+        });
+    }
+    
+    // Event listener to auto-populate the job title when an applicant is selected
+    document.getElementById('applicantName').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const jobTitle = selectedOption.getAttribute('data-jobtitle');
+        document.getElementById('jobTitle').value = jobTitle;  // Set job title input
+    });
+    
+    // Function to handle interview scheduling form submission
+    const scheduleInterviewForm = document.getElementById('scheduleInterviewForm');
+    scheduleInterviewForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+    
+        const applicantName = document.getElementById('applicantName').value;
+        const jobTitle = document.getElementById('jobTitle').value;
+        const interviewDate = document.getElementById('interviewDate').value;
+        const interviewTime = document.getElementById('interviewTime').value;
+        const interviewMode = document.getElementById('interviewMode').value;
+        const interviewMem = document.getElementById('interviewMem').value; // Added to capture interview mode
+    
+        // Store interview details in 'interviews' collection
+        try {
+            const docRef = await addDoc(collection(db, 'interviews'), {
+                applicantName: applicantName,
+                jobTitle: jobTitle,
+                interviewDate: interviewDate,
+                interviewTime: interviewTime,
+                interviewMode: interviewMode,
+                interviewMem: interviewMem,  // Now included in the Firestore document
+                status: 'Scheduled',
+                createdAt: new Date(),
+            });
+    
+            console.log("Interview scheduled for:", applicantName, jobTitle, interviewDate, interviewTime, interviewMode);
+            alert("Interview successfully scheduled!");
+    
+            // Add the applicant to the set of scheduled applicants
+            scheduledApplicants.add(applicantName);
+    
+            // Refresh the interviews table
+            await loadInterviews(); // Load interviews again to refresh the dashboard
+    
+        } catch (error) {
+            console.error("Error scheduling interview: ", error);
+            alert("Error scheduling interview. Please try again.");
+        }
+    
+        // Reset the form and hide the modal
+        scheduleInterviewForm.reset();
+        const scheduleInterviewModal = bootstrap.Modal.getInstance(document.getElementById('scheduleInterviewModal'));
+        scheduleInterviewModal.hide();
+    });
+    
+    // Function to load interviews from the 'interviews' collection
+    async function loadInterviews() {
+        const interviewsTableBody = document.getElementById('interviewsTableBody');
+        const upcomingInterviewsCount = document.getElementById('upcomingInterviewsCount');
+    
+        interviewsTableBody.innerHTML = ''; // Clear existing rows
+    
+        const querySnapshot = await getDocs(collection(db, 'interviews'));
+        const interviews = [];
+    
+        querySnapshot.forEach((doc) => {
+            const interviewData = doc.data();
+            interviewData.id = doc.id;  // Store the document ID
+            interviews.push(interviewData);
+    
+            // Create a new table row for each interview
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${interviewData.applicantName}</td>
+                <td>${interviewData.jobTitle}</td>
+                <td>${interviewData.interviewDate}</td>
+                <td>${interviewData.interviewTime}</td>
+                <td>${interviewData.interviewMem}</td>
+                <td>${interviewData.interviewMode}</td> <!-- Added to display interview mode -->
+                <td>${interviewData.status}</td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-id="${interviewData.id}" data-bs-toggle="modal" data-bs-target="#viewInterviewModal">View</button>
+                    <button class="btn btn-danger btn-sm" data-id="${interviewData.id}">Cancel</button>
+                </td>
+            `;
+            interviewsTableBody.appendChild(row);
+        });
+    
+        // Update the upcoming interviews count
+        upcomingInterviewsCount.textContent = `${interviews.length} Upcoming Interviews`;
+    
+        // Add event listeners to cancel buttons
+        const cancelButtons = interviewsTableBody.querySelectorAll('.btn-danger');
+        cancelButtons.forEach(button => {
+            button.addEventListener('click', async function() {
+                const interviewId = this.getAttribute('data-id');
+                await deleteInterview(interviewId);
+            });
+        });
+
+        // Add event listeners to view buttons
+        const viewButtons = interviewsTableBody.querySelectorAll('.btn-info');
+        viewButtons.forEach(button => {
+            button.addEventListener('click', async function() {
+                const interviewId = this.getAttribute('data-id');
+                await viewInterview(interviewId);
+            });
+        });
+    }
+    
+    // Function to delete an interview
+    async function deleteInterview(interviewId) {
+        try {
+            await deleteDoc(doc(db, 'interviews', interviewId));
+            console.log("Interview canceled with ID:", interviewId);
+            alert("Interview successfully canceled!");
+    
+            // Remove from scheduled applicants
+            const interviewData = await getDocs(collection(db, 'interviews'));
+            interviewData.forEach(doc => {
+                if (doc.id === interviewId) {
+                    scheduledApplicants.delete(doc.data().applicantName);
+                }
+            });
+    
+            // Refresh the interviews table
+            await loadInterviews(); // Load interviews again to refresh the dashboard
+        } catch (error) {
+            console.error("Error canceling interview: ", error);
+            alert("Error canceling interview. Please try again.");
+        }
+    }
+
+    // Function to show interview details in the modal
+    async function viewInterview(interviewId) {
+        try {
+            const interviewDoc = await getDocs(collection(db, 'interviews'));
+            interviewDoc.forEach(doc => {
+                if (doc.id === interviewId) {
+                    const interviewData = doc.data();
+                    // Populate modal with interview details
+                    document.getElementById('viewApplicantName').textContent = interviewData.applicantName;
+                    document.getElementById('viewJobTitle').textContent = interviewData.jobTitle;
+                    document.getElementById('viewInterviewDate').textContent = interviewData.interviewDate;
+                    document.getElementById('viewInterviewTime').textContent = interviewData.interviewTime;
+                    document.getElementById('viewInterviewStatus').textContent = interviewData.status;
+                    document.getElementById('viewInterviewMode').textContent = interviewData.interviewMode; // Added to display interview mode in modal
+                }
+            });
+        } catch (error) {
+            console.error("Error retrieving interview details: ", error);
+        }
+    }
+
+    // Load applicants when the modal is opened
+    const scheduleInterviewModalElement = document.getElementById('scheduleInterviewModal');
+    scheduleInterviewModalElement.addEventListener('show.bs.modal', loadApplicants);
+    
+    // Load interviews when the page loads
+    window.onload = loadInterviews;
+</script>
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

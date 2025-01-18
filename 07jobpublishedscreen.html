@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Published Jobs</title>
+    <link rel="stylesheet" href="07style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="clr1" style="padding-top: 40px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 15px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="23DashboradOverviewScreen.html">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="05jobcreationscreen.html">Job Creation</a></li>
+                           <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="08jobcategoriesmanagement.html">
+                            Job Categories
+                        </a>
+                    </li>
+                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="32resume.html">
+                            ATS-GenAI
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="19InterviewSchedulingDashboard.html">
+                            Interview Dashboard
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>                        
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 m-auto p-4">
+                    <h1 class="text-white text-center p-4">Published Jobs</h1>
+                    <h4 class="text-white text-center p-4">Manage your published job listings effortlessly. View, edit, or unpublish postings as needed.</h4>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped bg-white p-4 rounded text-dark">
+                            <thead class="table-header">
+                                <tr>
+                                    <th>Job Title</th>
+                                    <th>Department</th>
+                                    <th>Date Published</th>
+                                    <th class="table-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jobsTableBody">
+                                <!-- Published jobs will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Edit Job Modal -->
+            <div class="modal fade" id="editJobModal" tabindex="-1" aria-labelledby="editJobModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editJobModalLabel">Edit Job</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editJobForm">
+                                <div class="mb-3">
+                                    <label for="jobTitle" class="form-label">Job Title</label>
+                                    <input type="text" class="form-control" id="jobTitle" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="department" class="form-label">Department</label>
+                                    <input type="text" class="form-control" id="department" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="jobLocation" class="form-label">Job Location</label>
+                                    <input type="text" class="form-control" id="jobLocation" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="employmentType" class="form-label">Employment Type</label>
+                                    <input type="text" class="form-control" id="employmentType" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="salaryRange" class="form-label">Salary Range</label>
+                                    <input type="text" class="form-control" id="salaryRange" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="applicationDeadline" class="form-label">Application Deadline</label>
+                                    <input type="date" class="form-control" id="applicationDeadline" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="requiredQualifications" class="form-label">Required Qualifications</label>
+                                    <textarea class="form-control" id="requiredQualifications" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="preferredQualifications" class="form-label">Preferred Qualifications</label>
+                                    <textarea class="form-control" id="preferredQualifications" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="responsibilities" class="form-label">Responsibilities</label>
+                                    <textarea class="form-control" id="responsibilities" rows="3"></textarea>
+                                </div>
+                                <input type="hidden" id="jobId">
+                                <input type="hidden" id="originalPublishedDate"> <!-- Hidden input for original published date -->
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="saveJobChanges()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- View Job Modal -->
+            <div class="modal fade" id="viewJobModal" tabindex="-1" aria-labelledby="viewJobModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="viewJobModalLabel">View Job Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Job Title: <span id="viewJobTitle"></span></h5>
+                            <p><strong>Department:</strong> <span id="viewDepartment"></span></p>
+                            <p><strong>Job Location:</strong> <span id="viewJobLocation"></span></p>
+                            <p><strong>Employment Type:</strong> <span id="viewEmploymentType"></span></p>
+                            <p><strong>Salary Range:</strong> <span id="viewSalaryRange"></span></p>
+                            <p><strong>Application Deadline:</strong> <span id="viewApplicationDeadline"></span></p>
+                            <p><strong>Required Qualifications:</strong> <span id="viewRequiredQualifications"></span></p>
+                            <p><strong>Preferred Qualifications:</strong> <span id="viewPreferredQualifications"></span></p>
+                            <p><strong>Responsibilities:</strong> <span id="viewResponsibilities"></span></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+  
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs, deleteDoc, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+            authDomain: "hexaware-39417.firebaseapp.com",
+            projectId: "hexaware-39417",
+            storageBucket: "hexaware-39417",
+            messagingSenderId: "118281921141",
+            appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+            measurementId: "G-F1LF9Z7GYS"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Fetch published jobs from Firestore and populate the table
+        async function fetchPublishedJobs() {
+            const jobsTableBody = document.getElementById('jobsTableBody');
+    
+            try {
+                const querySnapshot = await getDocs(collection(db, "jobs"));
+                console.log(`Fetched ${querySnapshot.size} published jobs`);
+    
+                if (querySnapshot.empty) {
+                    jobsTableBody.innerHTML = '<tr><td colspan="4" class="text-center">No published jobs available.</td></tr>';
+                    return;
+                }
+    
+                jobsTableBody.innerHTML = ''; // Clear previous entries
+    
+                querySnapshot.forEach((doc) => {
+                    const job = doc.data();
+                    const row = document.createElement('tr');
+                    row.setAttribute('data-job-id', doc.id);
+    
+                    const createdAt = job.createdAt ? new Date(job.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
+    
+                    row.innerHTML = `
+                        <td>${job.jobTitle}</td>
+                        <td>${job.department}</td>
+                        <td>${createdAt}</td> <!-- Display createdAt date -->
+                        <td class="table-actions">
+                            <span class="view-btn" style="cursor: pointer; color: blue;" onclick="viewJob('${encodeURIComponent(doc.id)}')">View</span> |
+                            <span class="edit-btn" style="cursor: pointer; color: green;" onclick="editJob('${encodeURIComponent(doc.id)}')">Edit</span> |
+                            <span class="unpublish-btn" style="cursor: pointer; color: red;" onclick="unpublishJob('${encodeURIComponent(doc.id)}', '${job.jobTitle}')">Unpublish</span>
+                        </td>
+                    `;
+    
+                    jobsTableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching published jobs: ", error);
+                alert("Error fetching published jobs: " + error.message);
+            }
+        }
+    
+        // Call the function to fetch published jobs
+        fetchPublishedJobs();
+    
+        // View job function
+        window.viewJob = async function(jobId) {
+            try {
+                const jobRef = doc(db, "jobs", decodeURIComponent(jobId));
+                const jobSnapshot = await getDoc(jobRef);
+    
+                if (jobSnapshot.exists()) {
+                    const jobData = jobSnapshot.data();
+    
+                    // Populate the view modal fields
+                    document.getElementById('viewJobTitle').innerText = jobData.jobTitle;
+                    document.getElementById('viewDepartment').innerText = jobData.department;
+                    document.getElementById('viewJobLocation').innerText = jobData.jobLocation || 'N/A';
+                    document.getElementById('viewEmploymentType').innerText = jobData.employmentType || 'N/A';
+                    document.getElementById('viewSalaryRange').innerText = jobData.salaryRange || 'N/A';
+    
+                    // Format applicationDeadline if available
+                    const applicationDeadline = jobData.applicationDeadline ? 
+                        new Date(jobData.applicationDeadline.seconds * 1000).toLocaleDateString() : 'N/A';
+                    document.getElementById('viewApplicationDeadline').innerText = applicationDeadline;
+    
+                    document.getElementById('viewRequiredQualifications').innerText = jobData.requiredQualifications || 'N/A';
+                    document.getElementById('viewPreferredQualifications').innerText = jobData.preferredQualifications || 'N/A';
+                    document.getElementById('viewResponsibilities').innerText = jobData.responsibilities || 'N/A';
+    
+                    // Show the view modal
+                    const modal = new bootstrap.Modal(document.getElementById('viewJobModal'));
+                    modal.show();
+                } else {
+                    alert("Job not found.");
+                }
+            } catch (error) {
+                console.error("Error fetching job data: ", error);
+                alert("Error fetching job data: " + error.message);
+            }
+        };
+    
+        // Edit job function
+        window.editJob = async function(jobId) {
+            try {
+                const jobRef = doc(db, "jobs", decodeURIComponent(jobId));
+                const jobSnapshot = await getDoc(jobRef);
+    
+                if (jobSnapshot.exists()) {
+                    const jobData = jobSnapshot.data();
+    
+                    // Populate the modal fields
+                    document.getElementById('jobTitle').value = jobData.jobTitle;
+                    document.getElementById('department').value = jobData.department;
+                    document.getElementById('jobLocation').value = jobData.jobLocation || '';
+                    document.getElementById('employmentType').value = jobData.employmentType || '';
+                    document.getElementById('salaryRange').value = jobData.salaryRange || '';
+    
+                    // Store the original published date
+                    const originalPublishedDate = jobData.createdAt ? 
+                        jobData.createdAt.seconds : null; // Store as seconds directly
+                    document.getElementById('originalPublishedDate').value = originalPublishedDate; // New hidden input
+    
+                    // Check if applicationDeadline is valid
+                    if (jobData.applicationDeadline && jobData.applicationDeadline.seconds) {
+                        document.getElementById('applicationDeadline').value = new Date(jobData.applicationDeadline.seconds * 1000).toISOString().split('T')[0];
+                    } else {
+                        document.getElementById('applicationDeadline').value = ''; // Set to empty if invalid
+                    }
+    
+                    document.getElementById('requiredQualifications').value = jobData.requiredQualifications || '';
+                    document.getElementById('preferredQualifications').value = jobData.preferredQualifications || '';
+                    document.getElementById('responsibilities').value = jobData.responsibilities || '';
+                    document.getElementById('jobId').value = jobId;
+    
+                    // Show the modal
+                    const modal = new bootstrap.Modal(document.getElementById('editJobModal'));
+                    modal.show();
+                } else {
+                    alert("Job not found.");
+                }
+            } catch (error) {
+                console.error("Error fetching job data: ", error);
+                alert("Error fetching job data: " + error.message);
+            }
+        };
+    
+        // Save job changes function
+        window.saveJobChanges = async function() {
+            const jobId = document.getElementById('jobId').value;
+            const originalPublishedDate = document.getElementById('originalPublishedDate').value; // Get the original published date
+    
+            const updatedJob = {
+                jobTitle: document.getElementById('jobTitle').value,
+                department: document.getElementById('department').value,
+                jobLocation: document.getElementById('jobLocation').value,
+                employmentType: document.getElementById('employmentType').value,
+                salaryRange: document.getElementById('salaryRange').value,
+                applicationDeadline: document.getElementById('applicationDeadline').value ? 
+                    new Date(document.getElementById('applicationDeadline').value).getTime() / 1000 : null, // Convert to Firestore Timestamp format
+                requiredQualifications: document.getElementById('requiredQualifications').value,
+                preferredQualifications: document.getElementById('preferredQualifications').value || null,
+                responsibilities: document.getElementById('responsibilities').value,
+                createdAt: originalPublishedDate ? originalPublishedDate : null // Preserve the original published date as seconds
+            };
+    
+            try {
+                await setDoc(doc(db, "jobs", jobId), updatedJob);
+                alert("Job updated successfully.");
+                location.reload(); // Reload the page to see the changes
+            } catch (error) {
+                console.error("Error updating job: ", error);
+                alert("Error updating job: " + error.message);
+            }
+        };
+    
+        // Unpublish job function
+        window.unpublishJob = async function(jobId, jobTitle) {
+            if (confirm(`Are you sure you want to unpublish the ${jobTitle} job?`)) {
+                try {
+                    await deleteDoc(doc(db, "jobs", jobId));
+                    alert(`${jobTitle} has been unpublished.`);
+                    location.reload(); // Reload the page to refresh the table
+                } catch (error) {
+                    console.error("Error unpublishing job: ", error);
+                    alert("Error unpublishing the job: " + error.message);
+                }
+            }
+        };
+    </script>
+    
+    
+    
+    
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

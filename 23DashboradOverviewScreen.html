@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recruitment Dashboard</title>
+
+    <link rel="stylesheet" href="23style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="clr1" style="padding-top: 120px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 15px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="23DashboradOverviewScreen.html">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="05jobcreationscreen.html">Job Creation</a></li>
+                           <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="08jobcategoriesmanagement.html">
+                            Job Categories
+                        </a>
+                    </li>
+                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="32resume.html">
+                            ATS-GenAI
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="19InterviewSchedulingDashboard.html">
+                            Interview Dashboard
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>                        
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <!-- Header Section -->
+        <h1 class="text-white bold p-3 text-center">Recruitment Dashboard</h1>
+        
+
+        <!-- Key Metrics Section -->
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title bold">Total Applications</h5>
+                        <p class="card-text" id="totalApplications">Loading...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title bold">Applications in Progress</h5>
+                        <p class="card-text" id="applicationsInProgress">3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title bold">Hired Candidates</h5>
+                        <p class="card-text" id="hiredCandidates">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title bold">Rejected Candidates</h5>
+                        <p class="card-text" id="rejectedCandidates">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <h5 class="card-title bold">Job Vacancy Department Wise</h5>
+                    <canvas id="applicationsOverTimeChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-3 h-100">
+                    <h5 class="card-title fw-bold">Job Vacancy Employment Wise</h5>
+                    <div class="chart-container" style="position: relative; height:300px; width:100%;">
+                        <canvas id="applicationsBySourceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="mt-5">
+            <h4 class="text-white bold">Upcoming Schedule</h4>
+            <table class="table table-striped text-white mt-3">
+                <thead>
+                    <tr>
+                        <th>Applicant Name</th>
+                        <th>Job Title</th>
+                        <th>Interview Member</th>
+                        <th>Interview Date</th>
+                        <th>Interview Mode</th>
+                        <th>Interview Time</th>
+                        <th>Status</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="interviewDataBody">
+                    <!-- Data will be populated here dynamically -->
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+            authDomain: "hexaware-39417.firebaseapp.com",
+            projectId: "hexaware-39417",
+            storageBucket: "hexaware-39417.appspot.com",
+            messagingSenderId: "118281921141",
+            appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+            measurementId: "G-F1LF9Z7GYS"
+        };
+    
+        // Initialize Firebase and Firestore
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Fetch applications by department
+        async function fetchApplicationsByDepartment() {
+            try {
+                console.log("Fetching applications by department...");
+                const querySnapshot = await getDocs(collection(db, "jobs"));
+                const departmentCounts = {};
+    
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const department = data.department || "Unknown";
+                    departmentCounts[department] = (departmentCounts[department] || 0) + 1;
+                });
+    
+                const labels = Object.keys(departmentCounts);
+                const data = Object.values(departmentCounts);
+    
+                console.log("Department data:", labels, data); // Debugging log
+                createChart(labels, data);
+            } catch (error) {
+                console.error("Error fetching applications by department:", error);
+            }
+        }
+    
+        // Fetch applications by source
+        async function fetchApplicationsBySource() {
+            try {
+                console.log("Fetching applications by source...");
+                const querySnapshot = await getDocs(collection(db, "jobs")); // Ensure correct collection name
+                const sourceCounts = {};
+    
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const source = data.employmentType || "Unknown";
+                    sourceCounts[source] = (sourceCounts[source] || 0) + 1;
+                });
+    
+                const labels = Object.keys(sourceCounts);
+                const data = Object.values(sourceCounts);
+    
+                console.log("Source data:", labels, data); // Debugging log
+                createSourceChart(labels, data);
+            } catch (error) {
+                console.error("Error fetching applications by source:", error);
+            }
+        }
+    
+        // Create department chart
+        function createChart(labels, data) {
+            const ctx = document.getElementById("applicationsOverTimeChart").getContext("2d");
+    
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Number of Applications",
+                        data: data,
+                        backgroundColor: "rgba(75, 192, 192, 0.5)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1,
+                                precision: 0,
+                            },
+                            title: {
+                                display: true,
+                                text: 'Applications',
+                            },
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Department',
+                            },
+                        },
+                    },
+                },
+            });
+        }
+    
+        // Create source chart
+        function createSourceChart(labels, data) {
+            const ctx = document.getElementById("applicationsBySourceChart").getContext("2d");
+    
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Number of Applications by Source",
+                        data: data,
+                        backgroundColor: "rgba(255, 159, 64, 0.5)",  // Orange bars
+                        borderColor: "rgba(255, 159, 64, 1)",
+                        borderWidth: 1,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1,
+                                precision: 0,
+                            },
+                            title: {
+                                display: true,
+                                text: 'Applications',
+                            },
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Source',
+                            },
+                        },
+                    },
+                },
+            });
+        }
+    
+        // Fetch both datasets and render the charts
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchApplicationsByDepartment();
+            fetchApplicationsBySource(); // Fetch data for the second chart as well
+        });
+
+        // Fetch the total number of job records and display in 'totalApplications'
+async function fetchTotalApplications() {
+    try {
+        console.log("Fetching total applications...");
+        
+        // Get the 'jobs' collection from Firestore
+        const querySnapshot = await getDocs(collection(db, "jobs"));
+        
+        // Count the number of documents in the 'jobs' collection
+        const totalApplications = querySnapshot.size;
+        
+        // Display the total number of applications in the element with id 'totalApplications'
+        document.getElementById("totalApplications").innerText = totalApplications;
+        
+        console.log("Total Applications:", totalApplications); // Debugging log
+    } catch (error) {
+        console.error("Error fetching total applications:", error);
+        document.getElementById("totalApplications").innerText = "Error loading data";
+    }
+}
+
+// Call the function after the DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    fetchTotalApplications();
+});
+
+    // Fetch the number of applications in the interview stage and display in 'applicationsInProgress'
+async function fetchApplicationsInProgress() {
+    try {
+        console.log("Fetching applications in progress from interviewstage...");
+
+        // Define the collection: interviewstage
+        const querySnapshot = await getDocs(collection(db, "interviewstage"));
+        let inProgressCount = 0;
+
+        // Count the number of documents in the interviewstage collection
+        querySnapshot.forEach(() => {
+            inProgressCount++;
+        });
+
+        // Display the count of applications in the interview stage
+        document.getElementById("applicationsInProgress").innerText = inProgressCount;
+        
+        console.log("Applications in Interview Stage:", inProgressCount); // Debugging log
+    } catch (error) {
+        console.error("Error fetching applications in interview stage:", error);
+        document.getElementById("applicationsInProgress").innerText = "Error loading data";
+    }
+}
+
+// Call the function after the DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    fetchApplicationsInProgress();
+});
+
+async function fetchInterviewData() {
+        try {
+            const querySnapshot = await getDocs(collection(db, "interviews"));
+            const tbody = document.getElementById("interviewDataBody");
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+
+                // Create table row
+                const row = document.createElement("tr");
+
+                // Add table cells with the interview data
+                row.innerHTML = `
+                    <td>${data.applicantName || "N/A"}</td>
+                    <td>${data.jobTitle || "N/A"}</td>
+                    <td>${data.interviewMem || "N/A"}</td>
+                    <td>${data.interviewDate || "N/A"}</td>
+                    <td>${data.interviewMode || "N/A"}</td>
+                    <td>${data.interviewTime || "N/A"}</td>
+                    <td>${data.status || "N/A"}</td>
+                    
+                `;
+
+                // Append row to the table body
+                tbody.appendChild(row);
+            });
+        } catch (error) {
+            console.error("Error fetching interview data:", error);
+        }
+    }
+
+    // Fetch interview data on page load
+    document.addEventListener("DOMContentLoaded", fetchInterviewData);
+
+    </script>
+    
+    
+    
+    
+    
+       
+     
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

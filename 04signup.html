@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    
+    <link rel="stylesheet" href="04style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body class="clr1">
+    <!-- Sign Up Section -->
+    <section class="d-flex align-items-center min-vh-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-4 m-auto">
+            <img src="img/logo2.png" alt="SmartRecruit Logo" style="height: 150px; width: 400px; margin-right: 10px;">
+            <div class="features" style="font-size: 22px; font-weight: 100; font-style: italic;">
+                <p class="text-white">We help every company recruit top talent.</p>
+                <h4 class="text-white">Popular Features:</h4>
+                <ul class="features-list text-white">
+                  <li>Core ATS</li>
+                  <li>Career Websites</li>
+                  <li>Job Posting</li>
+                  <li>Interview Scheduling</li>
+                  <li>Interview Scorecards</li>
+                  <li>AI Recruiting</li>
+                  <li>Workflow Automation</li>
+                  <li>Background Checks</li>
+                  <li>Offer Management</li>
+                  <li>End to End Reporting</li>
+                </ul>
+              </div>
+          </div>
+
+          <div class="col-6">
+            <form id="signUpForm">
+              <div class="card rounded-5 shadow">
+                <div class="card-body p-5">
+                  <h3 class="text-center bold mb-4 ">Sign Up</h3>
+                  
+                  <!-- Full Name Field -->
+                  <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                    <div class="invalid-feedback">Full name is required.</div>
+                  </div>
+
+                  <!-- Email Field -->
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    <div class="invalid-feedback">Please provide a valid email address.</div>
+                  </div>
+
+                  <!-- Password Field -->
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required minlength="8">
+                    <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+                  </div>
+
+                  <!-- Confirm Password Field -->
+                  <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter your password" required>
+                    <div class="invalid-feedback">Passwords must match.</div>
+                  </div>
+
+                  <!-- Sign Up Button -->
+                  <div class="d-grid">
+                    <button type="submit" class="btn rounded-5" style="background-color: #9d69e7;">Sign Up</button>
+                  </div>
+
+                  <!-- Back to Login Link -->
+                  <div class="text-center mt-3">
+                    <a href="01loginpage.html" class="link-primary">Back to Login</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Firebase Authentication -->
+    <script type="module">
+      // Import Firebase SDK
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+      import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+    
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+        authDomain: "hexaware-39417.firebaseapp.com",
+        projectId: "hexaware-39417",
+        storageBucket: "hexaware-39417.appspot.com",
+        messagingSenderId: "118281921141",
+        appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+        measurementId: "G-F1LF9Z7GYS"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Sign-Up functionality
+      document.getElementById('signUpForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password === confirmPassword) {
+          try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            alert("Sign-up successful!");
+            // You can redirect to another page here
+          } catch (error) {
+            alert("Error: " + error.message);
+          }
+        } else {
+          alert("Passwords do not match.");
+        }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

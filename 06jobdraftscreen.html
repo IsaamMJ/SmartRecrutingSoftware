@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Drafts</title>
+    <link rel="stylesheet" href="06style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="clr1">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 15px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="23DashboradOverviewScreen.html">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="05jobcreationscreen.html">Job Creation</a></li>
+                           <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="08jobcategoriesmanagement.html">
+                            Job Categories
+                        </a>
+                    </li>
+                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="32resume.html">
+                            ATS-GenAI
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="19InterviewSchedulingDashboard.html">
+                            Interview Dashboard
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>                        
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container space">
+            <div class="row">
+                <div class="col-12 m-auto">
+                    <h1 class="text-white text-center p-5">Job Drafts</h1>
+                    <h4 class="text-white text-center p-3">Manage your draft job listings effortlessly. Edit or delete postings before they go live.</h4>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped bg-white p-4 rounded text-white">
+                            <thead class="table-header">
+                                <tr>
+                                    <th>Job Title</th>
+                                    <th>Department</th>
+                                    <th>Date Created</th>
+                                    <th class="table-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="draftsTableBody">
+                                <!-- Job drafts will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal for Editing -->
+    <div class="modal fade" id="editJobModal" tabindex="-1" aria-labelledby="editJobModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editJobModalLabel">Edit Job Draft</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editJobForm">
+                        <input type="hidden" id="jobId">
+                        <div class="mb-3">
+                            <label for="editJobTitle" class="form-label">Job Title</label>
+                            <input type="text" class="form-control" id="editJobTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDepartment" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="editDepartment" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCreatedDate" class="form-label">Created Date</label>
+                            <input type="text" class="form-control" id="editCreatedDate" disabled>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs, doc, getDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+            authDomain: "hexaware-39417.firebaseapp.com",
+            projectId: "hexaware-39417",
+            storageBucket: "hexaware-39417.appspot.com",
+            messagingSenderId: "118281921141",
+            appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+            measurementId: "G-F1LF9Z7GYS"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Fetch job drafts from Firestore
+        async function fetchJobDrafts() {
+            const draftsTableBody = document.getElementById('draftsTableBody');
+    
+            try {
+                const querySnapshot = await getDocs(collection(db, "jobDrafts"));
+    
+                if (querySnapshot.empty) {
+                    draftsTableBody.innerHTML = '<tr><td colspan="4" class="text-center">No job drafts available.</td></tr>';
+                    return;
+                }
+    
+                querySnapshot.forEach((doc) => {
+                    const job = doc.data();
+                    const jobId = doc.id;
+                    const jobRow = `
+                        <tr>
+                            <td>${job.jobTitle}</td>
+                            <td>${job.department}</td>
+                            <td>${job.createdAt.toDate().toLocaleString()}</td>
+                            <td>
+                                <button class="btn btn-primary edit-btn" data-id="${jobId}">Edit</button>
+                                <button class="btn btn-danger delete-btn" data-id="${jobId}" data-title="${job.jobTitle}">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                    draftsTableBody.innerHTML += jobRow;
+                });
+            } catch (error) {
+                console.error("Error fetching job drafts:", error);
+            }
+        }
+    
+        // Open modal and populate data for editing
+        async function editJob(jobId) {
+            const modal = new bootstrap.Modal(document.getElementById('editJobModal'));
+            const jobTitleInput = document.getElementById('editJobTitle');
+            const departmentInput = document.getElementById('editDepartment');
+            const createdDateInput = document.getElementById('editCreatedDate');
+            const jobIdInput = document.getElementById('jobId');
+    
+            try {
+                const docSnap = await getDoc(doc(db, "jobDrafts", jobId));
+                if (docSnap.exists()) {
+                    const jobData = docSnap.data();
+                    jobTitleInput.value = jobData.jobTitle;
+                    departmentInput.value = jobData.department;
+                    createdDateInput.value = jobData.createdAt.toDate().toLocaleString(); // Display the date
+                    jobIdInput.value = jobId;
+                    modal.show();
+                } else {
+                    alert("Job draft not found.");
+                }
+            } catch (error) {
+                console.error("Error fetching job data:", error);
+            }
+        }
+    
+        // Handle form submission for saving changes
+        document.getElementById('editJobForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const jobId = document.getElementById('jobId').value;
+            const updatedTitle = document.getElementById('editJobTitle').value;
+            const updatedDepartment = document.getElementById('editDepartment').value;
+    
+            try {
+                await updateDoc(doc(db, "jobDrafts", jobId), {
+                    jobTitle: updatedTitle,
+                    department: updatedDepartment
+                });
+                alert("Job draft updated successfully.");
+                location.reload();
+            } catch (error) {
+                console.error("Error updating job draft:", error);
+                alert("Failed to update job draft.");
+            }
+        });
+    
+        // Delete job draft
+        async function deleteJob(jobId, jobTitle) {
+            if (confirm(`Are you sure you want to delete the job draft: ${jobTitle}?`)) {
+                try {
+                    await deleteDoc(doc(db, "jobDrafts", jobId));
+                    alert(`${jobTitle} has been successfully deleted.`);
+                    location.reload();
+                } catch (error) {
+                    console.error("Error deleting job draft:", error);
+                    alert(`Failed to delete ${jobTitle}. Please try again.`);
+                }
+            }
+        }
+    
+        // Attach event listeners for edit and delete buttons
+        function attachEventListeners() {
+            const draftsTableBody = document.getElementById('draftsTableBody');
+    
+            draftsTableBody.addEventListener('click', (event) => {
+                const target = event.target;
+    
+                if (target.classList.contains('edit-btn')) {
+                    const jobId = target.getAttribute('data-id');
+                    editJob(jobId);
+                }
+    
+                if (target.classList.contains('delete-btn')) {
+                    const jobId = target.getAttribute('data-id');
+                    const jobTitle = target.getAttribute('data-title');
+                    deleteJob(jobId, jobTitle);
+                }
+            });
+        }
+    
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', async () => {
+            await fetchJobDrafts();
+            attachEventListeners();
+        });
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6vOpCw4pHNDk5Y2z1zUMy86PxT9euzxPp5pC5iPHYbq+" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Reports Dashboard</title>
+
+    <link rel="stylesheet" href="26style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="clr1" style="padding-top: 120px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 15px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="23DashboradOverviewScreen.html">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="05jobcreationscreen.html">Job Creation</a></li>
+                           <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="08jobcategoriesmanagement.html">
+                            Job Categories
+                        </a>
+                    </li>
+                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="32resume.html">
+                            ATS-GenAI
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="19InterviewSchedulingDashboard.html">
+                            Interview Dashboard
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>                        
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="text-white bold text-center p-4">Custom Reports</h1>
+
+        <!-- Create New Report Button -->
+        <button class="btn btn-warning rounded-5 mb-4" id="createReportButton">Create New Report</button>
+
+        <!-- Saved Reports Table -->
+        <table class="table table-light table-bordered">
+            <thead>
+                <tr>
+                    <th>Report Name</th>
+                    <th>Date Created</th>
+                    <th>Created By</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="reportsTableBody">
+                <tr>
+                    <td>Recruitment Report</td>
+                    <td>2024-09-23</td>
+                    <td>Admin</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" onclick="viewReport('Recruitment Report')">View</button>
+                        <button class="btn btn-secondary btn-sm" onclick="editReport('Recruitment Report')">Edit</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteReport('Recruitment Report')">Delete</button>
+                        <button class="btn btn-success btn-sm" onclick="exportReport('Recruitment Report')">Export</button>
+                    </td>
+                </tr>
+                <!-- Additional report rows can go here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('createReportButton').addEventListener('click', function() {
+            alert('Create New Report functionality to be implemented.');
+        });
+
+        function viewReport(reportName) {
+            alert('Viewing report: ' + reportName);
+            // Implement logic to view the report
+        }
+
+        function editReport(reportName) {
+            alert('Editing report: ' + reportName);
+            // Implement logic to edit the report
+        }
+
+        function deleteReport(reportName) {
+            const confirmed = confirm('Are you sure you want to delete the report: ' + reportName + '?');
+            if (confirmed) {
+                alert('Report deleted: ' + reportName);
+                // Implement logic to delete the report
+            }
+        }
+
+        function exportReport(reportName) {
+            alert('Exporting report: ' + reportName);
+            // Implement logic to export the report
+        }
+    </script>
+</body>
+</html>

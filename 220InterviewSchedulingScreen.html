@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interview Scheduling</title>
+    <link rel="stylesheet" href="20style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="clr1">
+    <nav class="navbar navbar-custom navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 17px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="08jobcategoriesmanagement.html">Categories</a></li>
+                            <li><a class="dropdown-item" href="09categoryeditingmodel.html">Editing Model</a></li>
+                            <li><a class="dropdown-item" href="10jobcreationscreen.html">Creation Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Application
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="11applicationformsmanagement.html">Forms Management</a></li>
+                            <li><a class="dropdown-item" href="12formcreationscreen.html">Form creation</a></li>
+                            <li><a class="dropdown-item" href="13addfieldmodel.html">Add Field</a></li>
+                            <li><a class="dropdown-item" href="14formeditingscreen.html">Form Editing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ATS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="16ApplicationManagementScreen.html">Application Management</a></li>
+                            <li><a class="dropdown-item" href="17Applicationdetailscreen.html">Application Detail</a></li>
+                            <li><a class="dropdown-item" href="18NotificationScreen.html">Notification Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Interview Scheduling
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="19InterviewSchedulingDashboard.html">Dashboard</a></li>
+                            <!--<li><a class="dropdown-item" href="20InterviewSchedulingScreen.html">Interview Scheduling</a></li>-->
+                            <li><a class="dropdown-item" href="21Interviewdetailscreen.html">Interview Details</a></li>
+                            <li><a class="dropdown-item" href="22Reschedulingscreen.html">Rescheduling</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="23DashboradOverviewScreen.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="24ApplicationDetailScreen.html">Application Detail</a></li>
+                            <li><a class="dropdown-item" href="25Updatestatusscreen.html">Update Status</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center"></li>
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="text-white bold pt-5 pb-3 text-center">Schedule Interview</h1>
+        <form id="scheduleInterviewForm">
+
+            <!-- Applicant Name Dropdown -->
+            <div class="mb-3">
+                <label for="applicantName" class="form-label bold">Applicant Name</label>
+                <select class="form-select" id="applicantName" required>
+                    <option selected disabled>Select applicant</option>
+                    <option value="applicant1">Applicant 1</option>
+                    <option value="applicant2">Applicant 2</option>
+                    <option value="applicant3">Applicant 3</option>
+                </select>
+            </div>
+
+            <!-- Job Title Dropdown -->
+            <div class="mb-3">
+                <label for="jobTitle" class="form-label bold">Job Title</label>
+                <select class="form-select" id="jobTitle" required>
+                    <option selected disabled>Select job title</option>
+                    <option value="job1">Job 1</option>
+                    <option value="job2">Job 2</option>
+                    <option value="job3">Job 3</option>
+                </select>
+            </div>
+
+            <!-- Interview Date Picker -->
+            <div class="mb-3">
+                <label for="interviewDate" class="form-label bold">Interview Date</label>
+                <input type="date" class="form-control" id="interviewDate" required>
+            </div>
+
+            <!-- Interview Time Picker -->
+            <div class="mb-3">
+                <label for="interviewTime" class="form-label bold">Interview Time</label>
+                <input type="time" class="form-control" id="interviewTime" required>
+            </div>
+
+            <!-- Interviewers Multi-Select Dropdown -->
+            <div class="mb-3">
+                <label for="interviewers" class="form-label bold">Interviewers</label>
+                <select class="form-select" id="interviewers" multiple required>
+                    <option value="interviewer1">Interviewer 1</option>
+                    <option value="interviewer2">Interviewer 2</option>
+                    <option value="interviewer3">Interviewer 3</option>
+                </select>
+                <div class="form-text">Hold down the Ctrl (Windows) or Command (Mac) button to select multiple options.</div>
+            </div>
+
+            <!-- Interview Mode Dropdown -->
+            <div class="mb-3">
+                <label for="interviewMode" class="form-label bold">Interview Mode</label>
+                <select class="form-select" id="interviewMode" required>
+                    <option selected disabled>Select interview mode</option>
+                    <option value="in-person">In-Person</option>
+                    <option value="video-call">Video Call</option>
+                    <option value="phone-call">Phone Call</option>
+                    <option value="teams-call">Teams Call</option>
+                </select>
+            </div>
+
+            <!-- Interview Location Textbox -->
+            <div class="mb-3" id="interviewLocationContainer" style="display: none;">
+                <label for="interviewLocation" class="form-label bold">Interview Location</label>
+                <input type="text" class="form-control" id="interviewLocation" placeholder="Enter interview location" required>
+            </div>
+
+            <!-- Schedule Interview Button -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success rounded-5">Schedule Interview</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const interviewModeDropdown = document.getElementById('interviewMode');
+        const interviewLocationContainer = document.getElementById('interviewLocationContainer');
+
+        interviewModeDropdown.addEventListener('change', function() {
+            if (interviewModeDropdown.value === 'in-person') {
+                interviewLocationContainer.style.display = 'block';
+                document.getElementById('interviewLocation').setAttribute('required', 'required');
+            } else {
+                interviewLocationContainer.style.display = 'none';
+                document.getElementById('interviewLocation').removeAttribute('required');
+            }
+        });
+
+        const scheduleInterviewForm = document.getElementById('scheduleInterviewForm');
+        scheduleInterviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Logic to schedule the interview
+            console.log("Interview scheduled with details:", {
+                applicantName: document.getElementById('applicantName').value,
+                jobTitle: document.getElementById('jobTitle').value,
+                interviewDate: document.getElementById('interviewDate').value,
+                interviewTime: document.getElementById('interviewTime').value,
+                interviewers: Array.from(document.getElementById('interviewers').selectedOptions).map(option => option.value),
+                interviewMode: interviewModeDropdown.value,
+                interviewLocation: document.getElementById('interviewLocation').value
+            });
+            scheduleInterviewForm.reset();
+            interviewLocationContainer.style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>

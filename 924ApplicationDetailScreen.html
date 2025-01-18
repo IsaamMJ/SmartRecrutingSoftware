@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Application Details</title>
+
+    <link rel="stylesheet" href="24style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="clr1">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top navbar-custom" style="font-size: 17px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="08jobcategoriesmanagement.html">Categories</a></li>
+                            <li><a class="dropdown-item" href="09categoryeditingmodel.html">Editing Model</a></li>
+                            <li><a class="dropdown-item" href="10jobcreationscreen.html">Creation Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Application
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="11applicationformsmanagement.html">Forms Management</a></li>
+                            <li><a class="dropdown-item" href="12formcreationscreen.html">Form creation</a></li>
+                            <li><a class="dropdown-item" href="13addfieldmodel.html">Add Field</a></li>
+                            <li><a class="dropdown-item" href="14formeditingscreen.html">Form Editing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ATS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="16ApplicationManagementScreen.html">Application Management</a></li> 
+                            <!--<li><a class="dropdown-item" href="17Applicationdetailscreen.html">Application Detail</a></li>-->
+                            <li><a class="dropdown-item" href="18NotificationScreen.html">Notification Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Interview Scheduling
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="19InterviewSchedulingDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="20InterviewSchedulingScreen.html">Interview Scheduling</a></li>
+                            <li><a class="dropdown-item" href="21Interviewdetailscreen.html">Interview Details</a></li>
+                            <li><a class="dropdown-item" href="22Reschedulingscreen.html">Rescheduling</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="23DashboradOverviewScreen.html">Overview</a></li>
+                            <!--<li><a class="dropdown-item" href="24ApplicationDetailScreen.html">Application Detail</a></li>-->
+                            <!--<li><a class="dropdown-item" href="25Updatestatusscreen.html">Update Status</a></li>-->
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center"></li>
+                    <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="text-white bold p-5 text-center">Application Details</h1>
+    
+        <!-- Navigation Buttons for Applicants -->
+        <div class="d-flex justify-content-between mb-4">
+            <button class="btn btn-secondary" id="previousButton">Previous</button>
+            <button class="btn btn-secondary" id="nextButton">Next</button>
+        </div>
+    
+        <!-- Applicant Information Section -->
+        <div class="card text-white bg-info mb-4">
+            <div class="card-body">
+                <h5 class="card-title bold">Applicant Information</h5>
+                <p><strong>Name:</strong> <span id="applicantName">John Doe</span></p>
+                <p><strong>Position:</strong> <span id="applicantPosition">Software Engineer</span></p>
+                <p><strong>Source:</strong> <span id="applicantSource">Job Board</span></p>
+                <p><strong>Date Applied:</strong> <span id="dateApplied">2023-09-10</span></p>
+            </div>
+        </div>
+    
+        <!-- Application Status Section -->
+        <div class="card text-white bg-success mb-4">
+            <div class="card-body">
+                <h5 class="card-title bold">Application Status</h5>
+                <p><strong>Current Status:</strong> <span id="currentStatus">In Progress</span></p>
+                
+                <h6>Status History</h6>
+                <table class="table table-striped text-white">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="statusHistory">
+                        <tr>
+                            <td>2023-09-11</td>
+                            <td>Applied</td>
+                            <td>Application submitted.</td>
+                        </tr>
+                        <tr>
+                            <td>2023-09-15</td>
+                            <td>Interview Scheduled</td>
+                            <td>Interview with team on 2023-09-20.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+        <!-- Actions Section -->
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-info rounded-5" id="sendMessageButton">Send Message</button>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+            authDomain: "hexaware-39417.firebaseapp.com",
+            projectId: "hexaware-39417",
+            storageBucket: "hexaware-39417.appspot.com",
+            messagingSenderId: "118281921141",
+            appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+            measurementId: "G-F1LF9Z7GYS"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        let applications = [];
+        let currentIndex = 0;
+    
+        // Function to fetch application details from Firestore
+        async function fetchApplicationDetails() {
+            const querySnapshot = await getDocs(collection(db, 'jobApplications'));
+            applications = [];
+            querySnapshot.forEach((doc) => {
+                applications.push({ id: doc.id, ...doc.data() });
+            });
+        }
+    
+        // Function to display the applicant details on the page
+        function displayApplicationDetails() {
+            if (applications.length > 0 && currentIndex < applications.length) {
+                const applicant = applications[currentIndex];
+                document.getElementById('applicantName').textContent = `${applicant.firstName} ${applicant.lastName}`;
+                document.getElementById('applicantPosition').textContent = applicant.jobPosting;
+                document.getElementById('applicantSource').textContent = applicant.jobCategory;
+                document.getElementById('dateApplied').textContent = applicant.submittedAt.toDate().toLocaleDateString();
+                document.getElementById('currentStatus').textContent = "In Progress"; // Modify as per your application logic
+            }
+        }
+    
+        // Navigation button event listeners
+        document.getElementById('previousButton').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayApplicationDetails();
+            }
+        });
+    
+        document.getElementById('nextButton').addEventListener('click', () => {
+            if (currentIndex < applications.length - 1) {
+                currentIndex++;
+                displayApplicationDetails();
+            }
+        });
+    
+        // Call fetchApplicationDetails and then display on page load
+        window.onload = async () => {
+            await fetchApplicationDetails();
+            displayApplicationDetails();
+        };
+
+        document.getElementById('sendMessageButton').addEventListener('click', () => {
+        // Show a simple alert popup
+        alert('Interview Details sent to the applicant!');
+        });
+    </script>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

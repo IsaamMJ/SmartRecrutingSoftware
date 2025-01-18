@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Categories Management</title>
+    <link rel="stylesheet" href="08style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="clr1" style="padding-top: 120px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 15px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="23DashboradOverviewScreen.html">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="05jobcreationscreen.html">Job Creation</a></li>
+                           <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="08jobcategoriesmanagement.html">
+                            Job Categories
+                        </a>
+                    </li>
+                                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="32resume.html">
+                            ATS-GenAI
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="19InterviewSchedulingDashboard.html">
+                            Interview Dashboard
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li>                        
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section style="margin-top: 25px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 m-auto">
+                    <h1 class="text-white text-center p-1">Job Categories Management</h1>
+                    <h4 class="text-white text-center p-4">Manage job categories by adding, editing, or deleting them directly on this page. Any changes you make will be immediately reflected across all pages of the application, ensuring consistent category management throughout.</h4>
+    
+                    <!-- Category Form -->
+                    <form id="categoryForm" onsubmit="return false">
+                        <div class="mb-3">
+                            <label for="categoryType" class="form-label text-white" style="font-size: 18px;">Category Type</label>
+                            <select class="form-control" id="categoryType" required>
+                                <option value="" disabled selected>Select category type</option>
+                                <option value="Software Development">Software Development</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Cloud Computing">Cloud Computing</option>
+                                <option value="IT Support">IT Support</option>
+                                <option value="Network Administration">Network Administration</option>
+                                <option value="DevOps">DevOps</option>
+                                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                                <option value="Database Administration">Database Administration</option>
+                                <option value="Quality Assurance">Quality Assurance</option>
+                                <option value="IT Project Management">IT Project Management</option>
+                                <option value="UX/UI Design">UX/UI Design</option>
+                                <option value="Blockchain Development">Blockchain Development</option>
+                                <option value="Mobile App Development">Mobile App Development</option>
+                                <option value="Business Intelligence">Business Intelligence</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a category type.
+                            </div>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="categoryNameDropdown" class="form-label text-white" style="font-size: 18px;">Category Name</label>
+                            <select class="form-control" id="categoryNameDropdown" required>
+                                <option value="" disabled selected>Select a category name</option>
+                            </select>
+                            <input type="text" class="form-control mt-2 d-none" id="categoryNameInput" placeholder="Enter a new category name">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="addNewCategoryCheckbox">
+                                <label class="form-check-label text-white" for="addNewCategoryCheckbox">
+                                    Add a new category name
+                                </label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please select or enter a category name.
+                            </div>
+                        </div>
+    
+                        <button type="submit" class="add-category-btn">Add Category</button>
+                    </form>
+    
+                    <!-- Categories List Table -->
+                    <div class="table-responsive mt-5">
+                        <table class="table table-striped bg-white p-4 rounded text-dark">
+                            <thead class="table-header">
+                                <tr>
+                                    <th>Category Type</th>
+                                    <th>Category Name</th>
+                                    <th class="table-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categoriesList">
+                                <!-- Dynamic rows will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+            authDomain: "hexaware-39417.firebaseapp.com",
+            projectId: "hexaware-39417",
+            storageBucket: "hexaware-39417.appspot.com",
+            messagingSenderId: "118281921141",
+            appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+            measurementId: "G-F1LF9Z7GYS"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Category data
+        const categoryData = {
+            "Software Development": ["Frontend Development", "Backend Development"],
+            "Data Science": ["Data Analysis", "Machine Learning"],
+            "Cybersecurity": ["Ethical Hacking", "Security Analysis"],
+            "Cloud Computing": ["Cloud Architecture", "Cloud Security"],
+            "IT Support": ["Technical Support Specialist", "Help Desk Support"],
+            "Network Administration": ["Network Configuration", "Network Security"],
+            "DevOps": ["CI/CD", "IaC"],
+            "Artificial Intelligence": ["NLP", "Computer Vision"],
+            "Database Administration": ["Database Security", "Database Optimization"],
+            "Quality Assurance": ["Manual Testing", "Automated Testing"],
+            "IT Project Management": ["Agile Methodology", "Risk Management"],
+            "UX/UI Design": ["Wireframing", "User Research"],
+            "Blockchain Development": ["Smart Contract Development", "Cryptocurrency Integration"],
+            "Mobile App Development": ["Android Development", "iOS Development"],
+            "Business Intelligence": ["Data Warehousing", "Reporting & Dashboards"]
+        };
+    
+        // Fetch existing categories
+        async function fetchCategories() {
+            const categoriesList = document.getElementById('categoriesList');
+            try {
+                const querySnapshot = await getDocs(collection(db, "categories"));
+                categoriesList.innerHTML = ''; // Clear existing rows
+    
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${data.categoryType}</td>
+                        <td>${data.categoryName}</td>
+                        <td>
+                            <span class="edit-btn" onclick="editCategory('${doc.id}', '${data.categoryName}', '${data.categoryType}')">Edit</span> |
+                            <span class="delete-btn" onclick="deleteCategory('${doc.id}', '${data.categoryName}')">Delete</span>
+                        </td>
+                    `;
+                    categoriesList.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching categories: ", error);
+                alert("Error fetching categories: " + error.message);
+            }
+        }
+    
+        // Call fetchCategories on page load
+        fetchCategories();
+    
+        // Add new category to Firestore
+        async function addCategory() {
+            const categoryType = document.getElementById('categoryType').value;
+            const categoryName = document.getElementById('addNewCategoryCheckbox').checked 
+                ? document.getElementById('categoryNameInput').value 
+                : document.getElementById('categoryNameDropdown').value;
+    
+            if (!categoryName) {
+                alert("Please enter or select a category name.");
+                return;
+            }
+    
+            try {
+                await addDoc(collection(db, "categories"), {
+                    categoryType,
+                    categoryName,
+                    createdAt: new Date(),
+                });
+                alert(`${categoryName} has been added.`);
+                fetchCategories(); // Refresh categories list
+                document.getElementById('categoryForm').reset(); // Clear form fields
+            } catch (error) {
+                console.error("Error adding category: ", error);
+                alert("Error adding category: " + error.message);
+            }
+        }
+    
+        // Add event listener to form
+        document.getElementById('categoryForm').addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+            addCategory();
+        });
+    
+        // Edit category
+        window.editCategory = async function editCategory(categoryId, categoryName, categoryType) {
+            const newCategoryName = prompt("Edit category name:", categoryName);
+            const newCategoryType = prompt("Edit category type:", categoryType);
+    
+            if (newCategoryName && newCategoryType) {
+                try {
+                    const categoryDoc = doc(db, "categories", categoryId);
+                    await updateDoc(categoryDoc, {
+                        categoryName: newCategoryName,
+                        categoryType: newCategoryType
+                        
+                    });
+                    alert(`Category has been updated to ${newCategoryName}.`);
+                    fetchCategories(); // Refresh categories list
+                } catch (error) {
+                    console.error("Error updating category: ", error);
+                    alert("Error updating category: " + error.message);
+                }
+            } else {
+                alert("Both fields are required to update the category.");
+            }
+        };
+    
+        // Delete category from Firestore
+        window.deleteCategory = async function deleteCategory(categoryId, categoryName) {
+            if (confirm(`Are you sure you want to delete the ${categoryName} category?`)) {
+                try {
+                    const categoryDoc = doc(db, "categories", categoryId);
+                    await deleteDoc(categoryDoc);
+                    alert(`${categoryName} has been deleted.`);
+                    fetchCategories(); // Refresh categories list after deletion
+                } catch (error) {
+                    console.error("Error deleting category: ", error);
+                    alert("Error deleting category: " + error.message);
+                }
+            }
+        };
+    
+        // Populate category names based on selected category type
+        document.getElementById('categoryType').addEventListener('change', function () {
+            const categoryType = this.value;
+            const categoryNameDropdown = document.getElementById('categoryNameDropdown');
+    
+            // Clear previous options
+            categoryNameDropdown.innerHTML = '<option value="" disabled selected>Select category name</option>';
+    
+            // Populate new options based on category type
+            if (categoryData[categoryType]) {
+                categoryData[categoryType].forEach(function (name) {
+                    const option = document.createElement('option');
+                    option.value = name;
+                    option.textContent = name;
+                    categoryNameDropdown.appendChild(option);
+                });
+            }
+        });
+    
+        // Toggle manual entry for new category name
+        document.getElementById('addNewCategoryCheckbox').addEventListener('change', function () {
+            const isChecked = this.checked;
+            const categoryNameDropdown = document.getElementById('categoryNameDropdown');
+            const categoryNameInput = document.getElementById('categoryNameInput');
+    
+            if (isChecked) {
+                categoryNameDropdown.classList.add('d-none');
+                categoryNameInput.classList.remove('d-none');
+                categoryNameInput.setAttribute('required', true);
+                categoryNameDropdown.removeAttribute('required');
+            } else {
+                categoryNameDropdown.classList.remove('d-none');
+                categoryNameInput.classList.add('d-none');
+                categoryNameInput.removeAttribute('required');
+                categoryNameDropdown.setAttribute('required', true);
+            }
+        });
+    </script>
+    
+    
+    
+    
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

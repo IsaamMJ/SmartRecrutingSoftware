@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Categories Management</title>
+    <link rel="stylesheet" href="09style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="clr1" style="padding-top: 80px;">
+    <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top" style="font-size: 17px; font-weight: bold; background-color: linear-gradient(135deg, #5f8e8a, #9d69e7);" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo2.png" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jobs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="06jobdraftscreen.html">Job Draft</a></li>
+                            <li><a class="dropdown-item" href="07jobpublishedscreen.html">Job Published</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="08jobcategoriesmanagement.html">Categories</a></li>
+                            <li><a class="dropdown-item" href="10jobcreationscreen.html">Creation Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Application
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="11applicationformsmanagement.html">Forms Management</a></li>
+                            <li><a class="dropdown-item" href="12formcreationscreen.html">Form Creation</a></li>
+                            <li><a class="dropdown-item" href="13addfieldmodel.html">Add Field</a></li>
+                            <li><a class="dropdown-item" href="14formeditingscreen.html">Form Editing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ATS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="16ApplicationManagementScreen.html">Application Management</a></li>
+                            <!--<li><a class="dropdown-item" href="17Applicationdetailscreen.html">Application Detail</a></li>-->
+                            <li><a class="dropdown-item" href="18NotificationScreen.html">Notification Screen</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Interview Scheduling
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="19InterviewSchedulingDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="20InterviewSchedulingScreen.html">Interview Scheduling</a></li>
+                            <li><a class="dropdown-item" href="21Interviewdetailscreen.html">Interview Details</a></li>
+                            <li><a class="dropdown-item" href="22Reschedulingscreen.html">Rescheduling</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="23DashboradOverviewScreen.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="24ApplicationDetailScreen.html">Application Detail</a></li>
+                            <li><a class="dropdown-item" href="25Updatestatusscreen.html">Update Status</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Custom Report
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="26CustomereportDashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="27customreportscreen.html">Custom Report</a></li>
+                            <li><a class="dropdown-item" href="28Reportdetailscreen.html">Report Details</a></li>
+                            <li><a class="dropdown-item" href="29Editreportscreen.html">Edit Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Job Categories Management Section -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-10 m-auto">
+                    <h1 class="text-white text-center">Job Categories Management</h1>
+                    <h4 class="text-white text-center p-4">Manage job categories by adding, editing, or deleting as needed.</h4>
+
+                    <!-- Categories List Table -->
+                    <div class="table-responsive mt-5">
+                        <table class="table table-striped bg-white p-4 rounded text-white">
+                            <thead class="table-header">
+                                <tr>
+                                    <th>Category Type</th>
+                                    <th>Category Name</th>
+                                    <th class="table-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categoriesList">
+                                <!-- Dynamic rows will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Category Modal -->
+    <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content rounded-5">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="editCategoryForm">
+              <!-- Category Type Dropdown -->
+              <div class="mb-3">
+                <label for="editCategoryType" class="form-label">Category Type</label>
+                <select class="form-control" id="editCategoryType" required>
+                    <option value="" disabled>Select category type</option>
+                    <option value="Department">Department</option>
+                    <option value="Location">Location</option>
+                    <option value="Employment Type">Employment Type</option>
+                </select>
+                <div class="invalid-feedback">Please select a category type.</div>
+              </div>
+
+              <!-- Category Name Textbox -->
+              <div class="mb-3">
+                <label for="editCategoryName" class="form-label">Category Name</label>
+                <input type="text" class="form-control" id="editCategoryName" placeholder="Enter the category name" required>
+                <div class="invalid-feedback">Please enter a category name.</div>
+              </div>
+
+              <!-- Save Changes Button -->
+              <button type="submit" class="btn rounded-5" style="background-color: #9d69e7;">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDnyO-Y_sfcMZGaQPY8X-v5wTeFdgP1VKA",
+            authDomain: "hexaware-39417.firebaseapp.com",
+            projectId: "hexaware-39417",
+            storageBucket: "hexaware-39417.appspot.com",
+            messagingSenderId: "118281921141",
+            appId: "1:118281921141:web:f5382e3ef5c5722a838e3c",
+            measurementId: "G-F1LF9Z7GYS"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Variables for editing
+        let editingCategoryId = null;
+        let editingCategoryRow = null;
+    
+        // Fetch existing categories
+        async function fetchCategories() {
+            const categoriesList = document.getElementById('categoriesList');
+            try {
+                const querySnapshot = await getDocs(collection(db, "categories"));
+                categoriesList.innerHTML = ''; // Clear existing rows
+    
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const row = document.createElement('tr');
+                    row.setAttribute('data-id', doc.id); // Set a data attribute for the document ID
+                    row.innerHTML = `
+                        <td>${data.categoryType}</td>
+                        <td>${data.categoryName}</td>
+                        <td>
+                            <span class="edit-btn" style="cursor:pointer;" onclick="openEditModal('${doc.id}', '${data.categoryType}', '${data.categoryName}', this)">Edit</span> |
+                            <span class="delete-btn" style="cursor:pointer;" onclick="deleteCategory('${doc.id}', '${data.categoryName}', this)">Delete</span>
+                        </td>
+                    `;
+                    categoriesList.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching categories: ", error);
+                alert("Error fetching categories: " + error.message);
+            }
+        }
+    
+        // Call fetchCategories on page load
+        window.onload = () => {
+            fetchCategories();
+        };
+    
+        // Open the modal and populate with existing category data
+        window.openEditModal = function (categoryId, categoryType, categoryName, element) {
+            const categoryTypeDropdown = document.getElementById('editCategoryType');
+            const categoryNameTextbox = document.getElementById('editCategoryName');
+    
+            // Set values in the modal's fields
+            categoryTypeDropdown.value = categoryType;
+            categoryNameTextbox.value = categoryName;
+    
+            // Keep track of which category is being edited
+            editingCategoryRow = element.closest('tr');
+            editingCategoryId = categoryId;
+    
+            // Show the modal
+            const editModal = new bootstrap.Modal(document.getElementById('editCategoryModal'));
+            editModal.show();
+        };
+    
+        // Save changes and update the row
+        document.getElementById('editCategoryForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the form from submitting
+    
+            const categoryType = document.getElementById('editCategoryType').value;
+            const categoryName = document.getElementById('editCategoryName').value;
+    
+            // Update the category in Firestore
+            try {
+                await updateDoc(doc(db, "categories", editingCategoryId), {
+                    categoryType,
+                    categoryName
+                });
+                // Update the values in the row being edited
+                editingCategoryRow.cells[0].innerText = categoryType;
+                editingCategoryRow.cells[1].innerText = categoryName;
+    
+                // Hide the modal after saving changes
+                const editModal = bootstrap.Modal.getInstance(document.getElementById('editCategoryModal'));
+                editModal.hide();
+            } catch (error) {
+                console.error("Error updating category: ", error);
+                alert("Error updating category: " + error.message);
+            }
+        });
+    
+        // Delete category from Firestore
+        window.deleteCategory = async function (categoryId, categoryName, element) {
+            if (confirm(`Are you sure you want to delete the ${categoryName} category?`)) {
+                try {
+                    await deleteDoc(doc(db, "categories", categoryId));
+                    // Remove the row from the table
+                    const row = element.closest('tr');
+                    row.remove();
+                    alert(`${categoryName} has been deleted.`);
+                } catch (error) {
+                    console.error("Error deleting category: ", error);
+                    alert("Error deleting category: " + error.message);
+                }
+            }
+        };
+    </script>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+
+</body>
+</html>

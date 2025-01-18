@@ -1,0 +1,59 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&family=Poppins:wght@300&display=swap');
+
+    body {
+        min-height: 100vh;
+        font-family: 'Poppins', sans-serif; /* Set font for the entire body */
+    }
+
+    .clr1 {
+        background: linear-gradient(135deg, #5f8e8a, #9d69e7); /* Gradient background */
+        min-height: 100vh;
+        color: #fff; /* Ensures text is readable on the gradient background */
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .product-section {
+        padding: 50px;
+        text-align: center;
+    }
+
+    .product-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8); /* Slightly opaque white background for cards */
+        transition: transform 0.3s; /* Add transition effect */
+    }
+
+    .product-card:hover {
+        transform: scale(1.05); /* Scale effect on hover */
+    }
+
+    .product-card img {
+        max-width: 50px;
+        margin-bottom: 15px;
+    }
+
+    .nav-item {
+        font-size: 15px;
+        font-weight: bold;
+        border: 2px solid transparent;
+        color: #000; /* Color of the nav items */
+    }
+
+    .nav-item:hover {
+        border-bottom: 2px solid #17b317;
+        transition: 0.1s;
+    }
+
+    section {
+        min-height: 70vh;
+        vertical-align: middle;
+        align-items: center;
+        display: flex;
+    }
