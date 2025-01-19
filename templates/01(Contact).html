@@ -54,8 +54,8 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand bold text-white" href="#">
-                <img src="img/logo2.png" alt="SmartRecruit Logo" style="height: 150px; width: 400px; margin-right: 10px;">
+            <a class="navbar-brand bold text-white" href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='img/logo2.png') }}" alt="SmartRecruit Logo" style="height: 150px; width: 400px; margin-right: 10px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -63,16 +63,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="01loginpage.html" style="font-weight: bold;">Home</a>
+                        <a class="nav-link text-white" href="{{ url_for('home') }}" style="font-weight: bold;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="01(Aboutus).html" style="font-weight: bold;">About Us</a>
+                        <a class="nav-link text-white" href="{{ url_for('aboutus') }}" style="font-weight: bold;">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="01(products).html" style="font-weight: bold;">Services</a>
+                        <a class="nav-link text-white" href="{{ url_for('products') }}" style="font-weight: bold;">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a href="01(Contact).html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Contact Now</a>
+                        <a href="{{ url_for('contactus') }}" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Contact Now</a>
                     </li>
                 </ul>
             </div>

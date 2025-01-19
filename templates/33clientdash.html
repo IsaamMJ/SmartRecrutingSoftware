@@ -25,11 +25,11 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="33clientdash.html">Home</a>
+                            <a class="nav-link" href="{{ url_for('clientdashb') }}">Home</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="31clientjobpage.html">Job Openings</a>
+                            <a class="nav-link" href="{{ url_for('clientjob') }}">Job Openings</a>
                         </li>
 
                         <li class="nav-item">
@@ -41,8 +41,8 @@
                         
                         
                         <li class="nav-item d-flex align-items-center">
-                            <a href="01loginpage.html" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
-                        </li> 
+                            <a href="{{ url_for('home') }}" class="btn border text-white rounded-0" style="background-color: #9d69e7;">Sign Out</a>
+                        </li>
                     </ul>
                 </div>
             </div>
