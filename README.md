@@ -1,4 +1,5 @@
 **This is a Smart Recruiting Application**
+
 To run this application:
 First set up you firebase account and replace your credentials with yours
 
